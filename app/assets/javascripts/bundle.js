@@ -38089,58 +38089,55 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/session_api_util */ "./frontend/util/session_api_util.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import configureStore from "./store/store";
+// import Root from "./components/root";
+// import * as SessionApiUtils from "./util/session_api_util"
+// import * as sessionActions from "./actions/session_actions"
+// document.addEventListener("DOMContentLoaded", () => {
+//   const store = configureStore();
+//   // TESTING START
+//   window.getState = store.getState;
+//   window.dispatch = store.dispatch;
+//   // TESTING END
+//   const root = document.getElementById("root");
+//   ReactDOM.render(<Root store={store} />, root);
+// });
+// complete
+//React
+
+ //Components
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  var store;
 
+  if (window.currentUser) {
+    var preloadedState = {
+      session: {
+        id: window.currentUser.id
+      },
+      entities: {
+        users: _defineProperty({}, window.currentUser.id, window.currentUser)
+      }
+    };
+    store = (0,_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = (0,_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  }
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  var store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(); // TESTING START
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch; // TESTING END
-
-  var root = document.getElementById("root");
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  var root = document.getElementById('root');
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), root);
 });
-window.signup = _actions_session_actions__WEBPACK_IMPORTED_MODULE_5__.signup;
-window.login = _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__.login;
-window.logout = _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__.logout;
-window.user1 = {
-  full_name: "Ian Farr",
-  email: "ian3@gmail.com",
-  password: "password"
-}; // complete
-// //React
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// //Components
-// import Root from './components/root';
-// import configureStore from './store/store';
-// document.addEventListener('DOMContentLoaded', () => {
-//   let store;
-//   if (window.currentUser) {
-//     const preloadedState = {
-//       session: { id: window.currentUser.id },
-//       entities: {
-//         users: { [window.currentUser.id]: window.currentUser }
-//       }
-//     };
-//     store = configureStore(preloadedState);
-//     delete window.currentUser;
-//   } else {
-//     store = configureStore();
-//   }
-//   const root = document.getElementById('root');
-//   ReactDOM.render(<Root store={store} />, root);
-// });
 })();
 
 /******/ })()
