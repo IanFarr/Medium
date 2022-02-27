@@ -83,25 +83,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _images_medium_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/medium_logo.png */ "./frontend/images/medium_logo.png");
+
+
+ // Components
 
 
 
 
+ // Images
 
 
- // import logoImage from '../images/'
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
     to: "/",
     className: "header-link"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Medium")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__.AuthRoute, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: _images_medium_logo_png__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Medium")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__.AuthRoute, {
     exact: true,
     path: "/login",
     component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -37779,6 +37785,21 @@ function warning(condition, message) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (warning);
 
+
+/***/ }),
+
+/***/ "./frontend/images/medium_logo.png":
+/*!*****************************************!*\
+  !*** ./frontend/images/medium_logo.png ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAAeCAYAAACMjVaFAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAANaADAAQAAAABAAAAHgAAAABRaBHlAAAAHGlET1QAAAACAAAAAAAAAA8AAAAoAAAADwAAAA8AAAIJ64wG5gAAAdVJREFUWAnUlssrRVEUxo+BiaKMCHXLDJkwMMDYhPgHbkrJRAbKIwOlCBNR4g8wUB4ZGJshRl6hFMnEmKTI67d259S5u33v2XvfM7HqO/vu/a3vW+u89rlBYB9VpGbBOjgAZ+AKHIENMAqawb+IdrrcB1/g1wKX5AyAUuATfYgOwSt4AIugAqQS1bhsA5sTMeXcoO1w7GQ5T7071jMFvFrgegrwipJmnoGpWZc1ubvjyjH5MJFQ7xq+zGAjT8QT+AT1Bl4tdXF8By7NJ+Uu5SsWrjcySlM+Pt0x3UzolzO0MnuLJSUVceHlTuSLHQgbLznxWs1kJaY91rignIX7WIJNEZcceRQ79aLMM0A4W685zeM0ppWTztmg5BGxNfbNu9WLMp92rCvvegmQkFF/spoUw6EOfADfZl10g1HRcDzxqCu7nUQN0Gv3KobDvIHUk9Oay92KopIf38DVezI0aDNoh0NObYmuxsXkR1da3jEfn82wcbkrun5WuAYDoSemPY+u9JBn7QtpnOgHem+rQmQNhJ6Y9nxXChMLwMf7RamDYMSgl/+hgXywfIyL0ZxLYWIN+Pj8oJOdb8yg32ItiH+8fAr4aB6lMCFX1UcvGvmuThn0e38AAAD//2NsWGsAAAHaSURBVMVWzytFQRgdCzai7IQiOykLFlasbZB/wNuIjWyksBFJykJKskdKZGNtSay88quUXlmwFim/z3nmvj73zZ03Mzy+Os3cOd/5zrw7P+5TSqkl4OOPkYEfYx0I9a6AdtKg38WYmjYQoUauuhMaI1YAV43Me4euBBgz6LcwpvoNhCxQjP4OjRHzQEj9+6xaqRGDfo1ck4EIMfLRTNAYMQT46KLcdFatVMqgX9acujGQUYFitG3auDPQd1Prew36Wc0Fb4OQH3wRmaKtAt4A3zrjuka7QTusOVWHzrMhwdfMJX8wMtXtUYBvq9bWGLRcvVwsoucyqZ/kXMKjLOf41Zny9L1FPm8+BtsHQM6pmUQUvPevAZnwm/1X1OYZikc9Bsi5es3FChwLLXdbaYxXPMCPIsnVyCUvOgdxTz5vO3py0rUUiJB/Hg7E+LduF56eAJeJuuZwa9uCW+YFKFTPVKdb6GZsJh0g70RyIbMkntvKtkJyDsxLqsPxc6BcCnSf242fJL6URj2W2FSD4ZffZmTjeHXz5fiE3Eqy9hWKNFgK8dj0WPg8ihPbA1wP8ylyB4C8A4sxl+hDEs8Gb7UMsABUAkUJrlwKWAX2gTRwBhwCG8Ao0AL8e3wCzW5TGYROAs8AAAAASUVORK5CYII=");
 
 /***/ }),
 

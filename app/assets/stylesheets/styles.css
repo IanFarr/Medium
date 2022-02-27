@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:regular,bold,italic&subset=latin,latin-ext');
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  padding-left: 6%;
+  padding-right: 7%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #000;
+  background-color: #fec118;
+}
+
+header #logo {
+  width: 53px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+header a {
+  color: #000;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+  font-family: 'source serif pro', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.header-link img {
+  width: 35px;
+  height: 20px;
+  margin-right: 4px;
+  margin-bottom: 2.5px;
+}
+
+.login-signup a {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  color: #252525;
+}
+
+.login-signup a:first-child {
+  margin-right: 22px;
+}
+
+.login-signup a:last-child {
+  border-radius: 20px;
+  background-color: #191919;
+  color: #fbfbfb;
+  padding: 6.5px 13px 6.5px 13px;
+  transition: 0.3s;
+}
+
+.login-signup a:last-child:hover {
+  background-color: #090909;
+}
+
+.header-button {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  border-radius: 20px;
+  background-color: #191919;
+  color: #fbfbfb;
+  padding: 6.5px 13px 6.5px 13px;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  background-color: #090909;
+}
