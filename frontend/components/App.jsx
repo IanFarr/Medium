@@ -17,16 +17,12 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 // Images
-import logoImage from '../images/medium_logo.png'
+// import logoImage from '../images/medium_logo.png'
 
 
 const App = () => (
   <div>
     <header>
-      <Link to="/" className="header-link">
-        <img src={logoImage} />
-        <h1>Medium</h1>
-      </Link>
       <GreetingContainer />
     </header>
     <Switch>

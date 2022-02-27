@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:regular,bold,italic&subset=latin,latin-ext');
 
-header {
+.nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,4 +84,49 @@ header nav {
 
 .header-button:hover {
   background-color: #090909;
+}
+
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  padding-left: 6%;
+  padding-right: 7%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #000;
+  background-color: #fec118;
+}
+
+.banner-info {
+  width: 420px;
+  padding: 22px 0px 22px 0px;
+}
+
+.banner-info h1 {
+  font-family: 'source serif pro', sans-serif;
+  font-weight: 300;
+  font-size: 49px;
+  line-height: 52px;
+}
+
+.banner-info p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  width: 85%;
+  margin-bottom: 18px;
+  line-height: 19px;
+}
+
+.banner-info a {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  padding: 7px 14px 7px 14px;
 }

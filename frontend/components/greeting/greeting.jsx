@@ -5,13 +5,39 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
   const sessionLinks = () => (
-    <nav className="login-signup">
-      <Link to="/login">Sign in</Link>
-      <Link to="/signup">Get started</Link>
-    </nav>
+    <div className='welcome-banner'>
+      <div className='nav-bar'>
+        <Link to="/" className="header-link">
+          <h1>Medium</h1>
+        </Link>
+      
+        <nav className="login-signup">
+          <Link to="/login">Sign in</Link>
+          <Link to="/signup">Get started</Link>
+        </nav>
+      </div>
+
+      <div className='banner-content'>
+        <div className='banner-info'>
+          <h1>
+            Medium is a place to write, read, and connect
+          </h1>
+          <p>
+            It's easy and free to post your thinking on any topic and connect with
+            millions of readers.
+          </p>
+          <Link to="/signup">Start Writing</Link>
+        </div>
+
+        <div>
+          <h1>Pic Here</h1>
+        </div>
+      </div>
+
+    </div>
   );
   const personalGreeting = () => (
-    <hgroup className="header-group">
+    <hgroup className='nav-bar'>
       <button className="header-button" onClick={logout}>Log Out</button>
     </hgroup>
   );
