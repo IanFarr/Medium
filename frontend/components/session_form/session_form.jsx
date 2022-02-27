@@ -36,6 +36,21 @@ class SessionForm extends React.Component {
   }
 
   render() {
+
+    const renderSignupField = () => {
+      if (this.props.formType === 'signup') {
+        return (
+              <label>Full Name:
+                <input type="text"
+                  value={this.state.full_name}
+                  onChange={this.update('full_name')}
+                  className="login-input"
+                />
+              </label>
+        )
+      }
+    }
+
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -45,13 +60,7 @@ class SessionForm extends React.Component {
           {this.renderErrors()}
           <div className="login-form">
             <br />
-            <label>Full Name:
-              <input type="text"
-                value={this.state.full_name}
-                onChange={this.update('full_name')}
-                className="login-input"
-              />
-            </label>
+            {renderSignupField()}
             <br />
             <label>Email:
               <input type="text"
