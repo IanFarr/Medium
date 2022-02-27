@@ -130,3 +130,9 @@ header nav {
   background-color: #fbfbfb;
   padding: 7px 14px 7px 14px;
 }
+
+.banner-content img {
+  width: 280px;
+  align-self: baseline;
+  margin-bottom: -30px;
+}

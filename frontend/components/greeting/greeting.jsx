@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import logoImage from '../../images/medium_logo.png';
+import bannerQuotesImage from '../../images/quotes.png';
+
 
 
 const Greeting = ({ currentUser, logout }) => {
@@ -8,6 +11,7 @@ const Greeting = ({ currentUser, logout }) => {
     <div className='welcome-banner'>
       <div className='nav-bar'>
         <Link to="/" className="header-link">
+          <img src={logoImage} />
           <h1>Medium</h1>
         </Link>
       
@@ -30,7 +34,7 @@ const Greeting = ({ currentUser, logout }) => {
         </div>
 
         <div>
-          <h1>Pic Here</h1>
+          <img src={bannerQuotesImage} />
         </div>
       </div>
 
