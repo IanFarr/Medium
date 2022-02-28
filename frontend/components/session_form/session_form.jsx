@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   update(field) {
@@ -21,6 +23,10 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  closeModal() {
+    this.props.history.push('/')
   }
 
   renderErrors() {
@@ -40,50 +46,83 @@ class SessionForm extends React.Component {
     const renderSignupField = () => {
       if (this.props.formType === 'signup') {
         return (
-              <label>Full Name:
-                <input type="text"
-                  value={this.state.full_name}
-                  onChange={this.update('full_name')}
-                  className="login-input"
-                />
-              </label>
+            <label>Your full name:
+              <br />
+              <input type="text"
+                value={this.state.full_name}
+                onChange={this.update('full_name')}
+                className="login-input"
+              />
+            </label>
+        )
+      }
+    }
+
+    const renderAlternaticeLink = () => {
+      if (this.props.formType === 'signup') {
+        return (
+          <p>Already have an account? {this.props.navLink}</p>
+        )
+      } else {
+        return (
+          <p>No account? {this.props.navLink}</p>
+        )
+      }
+    }
+
+    const renderGreeting = () => {
+      if (this.props.formType === 'signup') {
+        return (
+          <h1>Join Medium.</h1>
+        )
+      } else {
+        return (
+          <h1>Welcome back.</h1>
         )
       }
     }
 
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Medium!
-          <br />
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
-          <div className="login-form">
+      <div className='modal' onClick={this.closeModal}>
+        <div className="login-form-container" onClick={e => e.stopPropagation()}>
+          <Link to="/" className='modal-x'></Link>
+          <form onSubmit={this.handleSubmit} className="login-form-box">
             <br />
-            {renderSignupField()}
-            <br />
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <input className="session-submit" type="submit" value={this.props.formType} />
-          </div>
-        </form>
+            {this.renderErrors()}
+            <div className="login-form">
+              <br />
+              {renderGreeting()}
+              <br />
+              {renderSignupField()}
+              <br />
+              <label>Your email:
+                <br />
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="login-input"
+                />
+              </label>
+              <br />
+              <label>Your password:
+                <br />
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                />
+              </label>
+              <br />
+              <input className="session-submit" type="submit" value={this.props.formType}/>
+              <br />
+              {renderAlternaticeLink()}
+              <Link to="/" className='demo-button'>demo user</Link>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

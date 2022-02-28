@@ -279,7 +279,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
     formType: 'login',
     navLink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
       to: "/signup"
-    }, "sign up instead")
+    }, "Create one")
   };
 };
 
@@ -307,6 +307,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -333,6 +335,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var SessionForm = /*#__PURE__*/function (_React$Component) {
   _inherits(SessionForm, _React$Component);
 
@@ -350,6 +353,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -370,6 +374,11 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       this.props.processForm(user);
     }
   }, {
+    key: "closeModal",
+    value: function closeModal() {
+      this.props.history.push('/');
+    }
+  }, {
     key: "renderErrors",
     value: function renderErrors() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.errors.map(function (error, i) {
@@ -385,7 +394,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
       var renderSignupField = function renderSignupField() {
         if (_this3.props.formType === 'signup') {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Full Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Your full name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
             type: "text",
             value: _this3.state.full_name,
             onChange: _this3.update('full_name'),
@@ -394,19 +403,44 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         }
       };
 
+      var renderAlternaticeLink = function renderAlternaticeLink() {
+        if (_this3.props.formType === 'signup') {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Already have an account? ", _this3.props.navLink);
+        } else {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "No account? ", _this3.props.navLink);
+        }
+      };
+
+      var renderGreeting = function renderGreeting() {
+        if (_this3.props.formType === 'signup') {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Join Medium.");
+        } else {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Welcome back.");
+        }
+      };
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "login-form-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        className: "modal",
+        onClick: this.closeModal
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "login-form-container",
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: "/",
+        className: "modal-x"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "login-form-box"
-      }, "Welcome to Medium!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Please ", this.props.formType, " or ", this.props.navLink, this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), renderSignupField(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Email:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), renderGreeting(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), renderSignupField(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Your email:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         value: this.state.email,
         onChange: this.update('email'),
         className: "login-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Your password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "password",
         value: this.state.password,
         onChange: this.update('password'),
@@ -415,14 +449,17 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "session-submit",
         type: "submit",
         value: this.props.formType
-      }))));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), renderAlternaticeLink(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: "/",
+        className: "demo-button"
+      }, "demo user")))));
     }
   }]);
 
   return SessionForm;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SessionForm);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.withRouter)(SessionForm));
 
 /***/ }),
 
@@ -455,7 +492,10 @@ var mapStateToProps = function mapStateToProps(_ref) {
     formType: 'signup',
     navLink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
       to: "/login"
-    }, "log in instead")
+    }, "Sign in"),
+    homeLink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      to: "/"
+    })
   };
 };
 
