@@ -11,7 +11,7 @@ const Greeting = ({ currentUser, logout }) => {
     <div className='welcome-banner'>
       <div className='nav-bar'>
         <Link to="/" className="header-link">
-          <img src={logoImage} />
+          <img src={window.mediumLogo} />
           <h1>Medium</h1>
         </Link>
       
@@ -34,7 +34,7 @@ const Greeting = ({ currentUser, logout }) => {
         </div>
 
         <div>
-          <img src={bannerQuotesImage} />
+          <img src={window.quotes} />
         </div>
       </div>
 
