@@ -19,11 +19,12 @@
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
   border-radius: 3px;
+  flex-direction: column;
 }
 
-.modal-x {
-  position: absolute;
-  right: 208px;
+.modal-x-container {
+  align-self: flex-end;
+  margin-right: 9px;
 }
 
 .modal-x:after {
@@ -35,7 +36,6 @@
 
 .login-form-container {
   display: flex;
-  justify-content: center;
 }
 
 .login-form-box {
@@ -55,7 +55,7 @@
   align-self: center;
   padding-bottom: 40px;
   color: #080808;
-  margin-top: -25px;
+  margin-top: 30px;
 }
 
 .login-form {
@@ -133,7 +133,7 @@
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 10px;
-  width: 80%;
+  width: 26%;
   align-self: center;
   cursor: pointer;
   text-align: center;

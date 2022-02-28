@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -23,6 +24,10 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  demoLogin() {
+    this.props.demoLogin();
   }
 
   closeModal() {
@@ -85,7 +90,9 @@ class SessionForm extends React.Component {
     return (
       <div className='modal' onClick={this.closeModal}>
         <div className="login-form-container" onClick={e => e.stopPropagation()}>
-          <Link to="/" className='modal-x'></Link>
+          <div className='modal-x-container'>
+            <Link to="/" className='modal-x'></Link>
+          </div>
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <br />
             {this.renderErrors()}
@@ -116,9 +123,9 @@ class SessionForm extends React.Component {
               <input className="session-submit" type="submit" value={this.props.formType}/>
               <br />
               {renderAlternaticeLink()}
-              <Link to="/" className='demo-button'>demo user</Link>
             </div>
           </form>
+          <button className='demo-button' onClick={() => this.demoLogin()}>demo user</button>
         </div>
       </div>
     );
