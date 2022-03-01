@@ -1,0 +1,22 @@
+.story-index-item-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 680px;
+
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.story-index-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-index-author-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.story-index-info-content {
+  display: flex;
+  flex-direction: row;
+}

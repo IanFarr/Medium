@@ -12,15 +12,26 @@ class StoryIndexItem extends React.Component {
 
     return (
       <div className="story-index-item-container">
+
         <div className="story-index-item-text">
-          <img className="story-index-author-icon" src={window.indexUserIcon} />
-          <p className="story-index-author">{ author }</p>
+
+          <div className="story-index-author-content">
+            <img className="story-index-author-icon" src={window.indexUserIcon} />
+            <p className="story-index-author">{ author }</p>
+          </div>
+
           <h2 className="story-index-title">{ title }</h2>
           <p className="story-index-body">{ body.substring(0, 128) }...</p>
-          <p className="story-index-tags">{ tags[0] }</p>
-          <p className="story-index-date">{Moment(created_at).format('MMMM D')}</p>
+
+          <div className="story-index-info-content">
+            <p className="story-index-date">{Moment(created_at).format('MMMM D')}</p>
+            <p className="story-index-tags">{tags[0]}</p>
+          </div>
+          
         </div>
+        
         <img className="story-index-item-image" src={window.indexStoryImage} />
+
       </div>
     )
   }
