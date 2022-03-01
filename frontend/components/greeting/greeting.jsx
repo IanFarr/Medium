@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import logoImage from '../../images/medium_logo.png';
-import bannerQuotesImage from '../../images/quotes.png';
-
 
 
 const Greeting = ({ currentUser, logout }) => {

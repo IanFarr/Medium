@@ -13,6 +13,8 @@ import {
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import StoryIndexContainer from './stories/story_index_container';
+
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -25,6 +27,7 @@ const App = () => (
     <header>
       <GreetingContainer />
     </header>
+    <StoryIndexContainer />
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
