@@ -759,7 +759,9 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "story-index-info-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "story-index-date"
-      }, moment__WEBPACK_IMPORTED_MODULE_1___default()(created_at).format('MMMM D')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, moment__WEBPACK_IMPORTED_MODULE_1___default()(created_at).format('MMMM D')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "dot"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "story-index-tags"
       }, tags[0]))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "story-index-item-image",

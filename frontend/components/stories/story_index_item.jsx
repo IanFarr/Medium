@@ -25,11 +25,12 @@ class StoryIndexItem extends React.Component {
 
           <div className="story-index-info-content">
             <p className="story-index-date">{Moment(created_at).format('MMMM D')}</p>
+            <span className="dot"></span>
             <p className="story-index-tags">{tags[0]}</p>
           </div>
           
         </div>
-        
+
         <img className="story-index-item-image" src={window.indexStoryImage} />
 
       </div>
