@@ -875,6 +875,8 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
       if (this.props === null) return null;
       var story = this.props.story;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "story-show-box"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "story-show-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "story-show-author-container"
@@ -896,7 +898,7 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
         src: window.showStoryImage
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "sory-show-body"
-      }, story.body));
+      }, story.body)));
     }
   }]);
 
