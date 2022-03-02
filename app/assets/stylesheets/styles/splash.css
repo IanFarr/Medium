@@ -11,6 +11,19 @@
   padding-bottom: 6px;
   border-bottom: 1px solid #000;
   background-color: #fec118;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.nav-bar-spacer {
+  margin: 70px;
+}
+
+.logged-in-nav-bar-spacer {
+  margin: 100px;
 }
 
 header #logo {

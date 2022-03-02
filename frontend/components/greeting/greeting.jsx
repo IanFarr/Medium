@@ -4,8 +4,10 @@ import { Link, withRouter } from 'react-router-dom';
 
 
 const Greeting = ({ currentUser, logout }) => {
+
   const sessionLinks = () => (
     <div className='welcome-banner'>
+      <div className='nav-bar-spacer'></div>
       <div className='nav-bar'>
         <Link to="/" className="header-link">
           <img src={window.mediumLogo} />
@@ -18,32 +20,19 @@ const Greeting = ({ currentUser, logout }) => {
         </nav>
       </div>
 
-      <div className='banner-content'>
-        <div className='banner-info'>
-          <h1>
-            Medium is a place to write, read, and connect
-          </h1>
-          <p>
-            It's easy and free to post your thinking on any topic and connect with
-            millions of readers.
-          </p>
-          <Link to="/signup">Start Writing</Link>
-        </div>
-
-        <div>
-          <img src={window.quotes} />
-        </div>
-      </div>
-
     </div>
   );
   const personalGreeting = () => (
-    <hgroup className='nav-bar'>
-      <button className="header-button" onClick={logout}>Log Out</button>
-    </hgroup>
+    <div>
+      <div className='logged-in-nav-bar-spacer'></div>
+      <hgroup className='nav-bar'>
+        <button className="header-button" onClick={logout}>Log Out</button>
+      </hgroup>
+    </div>
   );
 
   return currentUser ? personalGreeting() : sessionLinks();
+
 };
 
 

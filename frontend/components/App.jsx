@@ -15,6 +15,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import StoryIndexContainer from './stories/story_index_container';
 import StoryShowContainer from './stories/story_show_container';
+import Banner from './greeting/banner';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -23,6 +24,7 @@ const App = () => (
   <div>
     <header>
       <GreetingContainer />
+      <AuthRoute exact path="/" component={Banner} />
     </header>
     <Switch>
       <Route path="/api/stories/:storyId" component={StoryShowContainer} />
