@@ -31,7 +31,8 @@ const Greeting = ({ currentUser, logout }) => {
     </div>
   );
 
-  return currentUser ? personalGreeting() : sessionLinks();
+  // return currentUser ? personalGreeting() : sessionLinks();
+  return currentUser ? null : sessionLinks();
 
 };
 

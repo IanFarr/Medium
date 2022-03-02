@@ -1,0 +1,4 @@
+.body-content-container {
+  display: flex;
+  flex-direction: row;
+}
