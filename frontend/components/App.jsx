@@ -14,12 +14,9 @@ import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import StoryIndexContainer from './stories/story_index_container';
+import StoryShowContainer from './stories/story_show_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-
-
-// Images
-// import logoImage from '../images/medium_logo.png'
 
 
 const App = () => (
@@ -27,7 +24,11 @@ const App = () => (
     <header>
       <GreetingContainer />
     </header>
-    <StoryIndexContainer />
+    <Switch>
+      <Route path="/api/stories/:storyId" component={StoryShowContainer} />
+      <Route path="/api/" component={StoryIndexContainer} />
+      <Route path="/" component={StoryIndexContainer} />
+    </Switch>
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

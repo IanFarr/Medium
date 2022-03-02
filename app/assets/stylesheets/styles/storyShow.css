@@ -1,0 +1,55 @@
+.story-show-container {
+  display: flex;
+  flex-direction: column;
+  margin: 55px 50px 0px 70px;
+}
+
+.story-show-author-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.story-show-author-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 14px;
+}
+
+.story-index-author {
+  color: #393f41;
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.story-show-date {
+  color: #6b7073;
+  font-size: 15px;
+  font-weight: 200;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.story-show-title {
+  color: #393f41;
+  font-size: 30px;
+  font-family: Helvetica, Arial, sans-serif;
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.story-body-image-container {
+  max-width: 650px;
+  margin-bottom: 45px;
+}
+
+.sory-show-body {
+  max-width: 650px;
+  color: #464c4f;
+  font-size: 20px;
+}
+
+.sory-show-body p {
+  max-width: 650px;
+  color: #6b7073;
+  font-family: 'Courier New', Courier, monospace;
+}
