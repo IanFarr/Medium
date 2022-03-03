@@ -20,8 +20,8 @@ class StoryIndexItem extends React.Component {
             <p className="story-index-author">{ author }</p>
           </div>
 
-          <Link to={`/api/stories/${id}`}><h2 className="story-index-title">{title}</h2></Link>
-          <Link to={`/api/stories/${id}`}><p className="story-index-body">{ body.substring(0, 113) }...</p></Link>
+          <Link to={`/api/stories/show/${id}`}><h2 className="story-index-title">{title}</h2></Link>
+          <Link to={`/api/stories/show/${id}`}><p className="story-index-body">{ body.substring(0, 113) }...</p></Link>
 
           <div className="story-index-info-content">
             <p className="story-index-date">{Moment(created_at).format('MMMM D')}</p>
@@ -31,7 +31,7 @@ class StoryIndexItem extends React.Component {
           
         </div>
 
-        <Link to={`/api/stories/${id}`}><img className="story-index-item-image" src={window.indexStoryImage} /></Link>
+        <Link to={`/api/stories/show/${id}`}><img className="story-index-item-image" src={window.indexStoryImage} /></Link>
 
       </div>
     )

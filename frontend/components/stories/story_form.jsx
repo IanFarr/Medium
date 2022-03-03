@@ -24,7 +24,7 @@ class StoryForm extends React.Component {
       <div className="create-story-container">
 
         <div className="create-story-nav-bar-container">
-          <Link to="/" className="header-link">
+          <Link to="/">
             <img src={window.mediumLogo} />
           </Link>
             <button
@@ -34,7 +34,7 @@ class StoryForm extends React.Component {
             </button>
         </div>
 
-        <div>
+        <div className="story-input-container">
           <input
             type='text'
             defaultValue={this.props.story.title}

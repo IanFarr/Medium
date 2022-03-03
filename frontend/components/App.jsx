@@ -25,16 +25,18 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <header>
-      <GreetingContainer />
+      <AuthRoute component={GreetingContainer} />
       <AuthRoute exact path="/" component={Banner} />
     </header>
     <div className='body-content-container'>
-      <NavBarContainer />
       <Switch>
-        <ProtectedRoute exact path="/api/stories/create/" component={CreateStoryFormContainer} />
-        <Route path="/api/stories/:storyId" component={StoryShowContainer} />
-        <Route path="/api/" component={StoryIndexContainer} />
-        <Route path="/" component={StoryIndexContainer} />
+        <ProtectedRoute path="/api/stories/create/" component={CreateStoryFormContainer} />
+        <NavBarContainer />
+      </Switch>
+      <Switch>
+        <Route exact path="/api/stories/show/:storyId/" component={StoryShowContainer} />
+        <Route exact path="/api/" component={StoryIndexContainer} />
+        <Route exact path="/" component={StoryIndexContainer} />
       </Switch>
       <Switch>
         <AuthRoute exact path="/login" component={LogInFormContainer} />
