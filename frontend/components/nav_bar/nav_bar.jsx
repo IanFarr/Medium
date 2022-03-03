@@ -25,7 +25,7 @@ const NavBar = ({ currentUser, logout }) => {
               <img src={window.navStoriesIcon} />
             </Link>
             <div className="nav-space-border"></div>
-            <Link to="/">
+            <Link to="/api/stories/create/">
               <img className="nav-create-icon" src={window.navCreateIcon} />
             </Link>
           </div>

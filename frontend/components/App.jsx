@@ -17,6 +17,7 @@ import StoryIndexContainer from './stories/story_index_container';
 import StoryShowContainer from './stories/story_show_container';
 import Banner from './greeting/banner';
 import NavBarContainer from './nav_bar/nav_bar_container';
+import CreateStoryFormContainer from './stories/create_story_form_container.js';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -30,6 +31,7 @@ const App = () => (
     <div className='body-content-container'>
       <NavBarContainer />
       <Switch>
+        <ProtectedRoute exact path="/api/stories/create/" component={CreateStoryFormContainer} />
         <Route path="/api/stories/:storyId" component={StoryShowContainer} />
         <Route path="/api/" component={StoryIndexContainer} />
         <Route path="/" component={StoryIndexContainer} />
