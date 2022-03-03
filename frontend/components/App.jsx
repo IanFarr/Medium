@@ -30,11 +30,11 @@ const App = () => (
     </header>
     <div className='body-content-container'>
       <Switch>
-        <ProtectedRoute path="/api/stories/create/" component={CreateStoryFormContainer} />
+        <ProtectedRoute path="/api/stories/create" component={CreateStoryFormContainer} />
         <NavBarContainer />
       </Switch>
       <Switch>
-        <Route exact path="/api/stories/show/:storyId/" component={StoryShowContainer} />
+        <Route path="/api/stories/show/:storyId/" component={StoryShowContainer} />
         <Route exact path="/api/" component={StoryIndexContainer} />
         <Route exact path="/" component={StoryIndexContainer} />
       </Switch>

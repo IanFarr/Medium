@@ -23,6 +23,8 @@ class StoryForm extends React.Component {
     return (
       <div className="create-story-container">
 
+        <div className="create-story-nav-spacer"></div>
+
         <div className="create-story-nav-bar-container">
           <Link to="/">
             <img src={window.mediumLogo} />
@@ -34,13 +36,17 @@ class StoryForm extends React.Component {
             </button>
         </div>
 
-        <div className="story-input-container">
+        <div className="create-story-input-container">
           <input
+            className="create-story-title-input"
             type='text'
+            placeholder="Title"
             defaultValue={this.props.story.title}
             onChange={this.update('title')}
           />
           <textarea
+            className="create-story-body-input"
+            placeholder="Tell your story..."
             defaultValue={this.props.story.body}
             onChange={this.update('body')}
           />
@@ -50,4 +56,4 @@ class StoryForm extends React.Component {
   }
 }
 
-export default withRouter(StoryForm);
+export default StoryForm;

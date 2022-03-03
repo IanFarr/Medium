@@ -51,10 +51,12 @@
   max-width: 650px;
   color: #464c4f;
   font-size: 20px;
+  white-space: pre-line;
 }
 
 .sory-show-body p {
   max-width: 650px;
   color: #6b7073;
   font-family: 'Courier New', Courier, monospace;
+  white-space: pre-line;
 }
