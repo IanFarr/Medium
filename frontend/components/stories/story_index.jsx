@@ -16,6 +16,7 @@ class StoryIndex extends React.Component {
           {this.props.stories.map(story => (
             <StoryIndexItem
               story={story}
+              fetchStories={this.props.fetchStories}
               key={story.id}
             />
           ))}
