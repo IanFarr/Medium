@@ -16,7 +16,7 @@ class YourStories extends React.Component {
       <div className="your-stories-container">
         <div className="your-stories-header-container">
           <h1>Your Stories</h1>
-          <Link to="/api/stories/create/">
+          <Link to="/stories/create/">
             <p>Write a story</p>
           </Link>
         </div>

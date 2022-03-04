@@ -32,14 +32,13 @@ const App = () => (
     </header>
     <div className='body-content-container'>
       <Switch>
-        <ProtectedRoute path="/api/stories/create" component={CreateStoryFormContainer} />
-        <ProtectedRoute path="/api/stories/edit/:storyId" component={EditStoryFormContainer} />
+        <ProtectedRoute path="/stories/create" component={CreateStoryFormContainer} />
+        <ProtectedRoute path="/stories/edit/:storyId" component={EditStoryFormContainer} />
         <NavBarContainer />
       </Switch>
       <Switch>
-        <Route path="/api/stories/show/:storyId/" component={StoryShowContainer} />
-        <ProtectedRoute path="/api/stories/myStories" component={YourStoriesContainer} />
-        <Route exact path="/api/" component={StoryIndexContainer} />
+        <Route path="/stories/show/:storyId/" component={StoryShowContainer} />
+        <ProtectedRoute path="/stories/myStories" component={YourStoriesContainer} />
         <Route exact path="/" component={StoryIndexContainer} />
       </Switch>
       <Switch>

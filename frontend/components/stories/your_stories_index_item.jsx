@@ -20,10 +20,10 @@ class YourStoriesIndexItem extends React.Component {
     return (
       <div className="your-story-item-container">
         <div className="your-story-info">
-          <Link to={`/api/stories/show/${this.props.storyId}`}>
+          <Link to={`/stories/show/${this.props.storyId}`}>
             <p className="your-story-title">{this.props.title}</p>
           </Link>
-          <Link to={`/api/stories/show/${this.props.storyId}`}>
+          <Link to={`/stories/show/${this.props.storyId}`}>
             <p
               className="your-story-body"
               >{this.props.body.substring(0, 113)}...
@@ -37,7 +37,7 @@ class YourStoriesIndexItem extends React.Component {
           </div>
 
           <div className="your-story-buttons">
-            <Link to={`/api/stories/edit/${this.props.storyId}`}>
+            <Link to={`/stories/edit/${this.props.storyId}`}>
               <p className="your-story-edit-button">Edit</p>
             </Link>
             <button onClick={() => this.handleDelete(this.props.storyId)} className="your-story-delete-button">Delete</button>
@@ -45,7 +45,7 @@ class YourStoriesIndexItem extends React.Component {
         </div>
 
         <div className="your-story-image">
-          <Link to={`/api/stories/show/${this.props.storyId}`}>
+          <Link to={`/stories/show/${this.props.storyId}`}>
             <img className="your-story-index-item-image" src={window.indexStoryImage} />
           </Link>
         </div>

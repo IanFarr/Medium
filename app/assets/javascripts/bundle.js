@@ -204,21 +204,17 @@ var App = function App() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "body-content-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__.ProtectedRoute, {
-    path: "/api/stories/create",
+    path: "/stories/create",
     component: _stories_create_story_form_container_js__WEBPACK_IMPORTED_MODULE_9__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__.ProtectedRoute, {
-    path: "/api/stories/edit/:storyId",
+    path: "/stories/edit/:storyId",
     component: _stories_edit_story_form_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_nav_bar_nav_bar_container__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-    path: "/api/stories/show/:storyId/",
+    path: "/stories/show/:storyId/",
     component: _stories_story_show_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__.ProtectedRoute, {
-    path: "/api/stories/myStories",
+    path: "/stories/myStories",
     component: _stories_your_stories_container__WEBPACK_IMPORTED_MODULE_11__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-    exact: true,
-    path: "/api/",
-    component: _stories_story_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
     exact: true,
     path: "/",
@@ -417,13 +413,13 @@ var NavBar = function NavBar(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       src: window.navSavedIcon
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: "/api/stories/myStories"
+      to: "/stories/myStories"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       src: window.navStoriesIcon
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "nav-space-border"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: "/api/stories/create/"
+      to: "/stories/create/"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "nav-create-icon",
       src: window.navCreateIcon
@@ -821,7 +817,7 @@ var mapStateToProps = function mapStateToProps(state) {
     story: {
       title: '',
       body: '',
-      tags: ['perhaps'],
+      tags: ['tag'],
       author: state.entities.users[Object.keys(state.entities.users)[0]].full_name,
       author_id: state.entities.users[Object.keys(state.entities.users)[0]].id,
       created_at: 'March 3'
@@ -1177,11 +1173,11 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "story-index-author"
       }, author)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/api/stories/show/".concat(id)
+        to: "/stories/show/".concat(id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "story-index-title"
       }, title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/api/stories/show/".concat(id)
+        to: "/stories/show/".concat(id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "story-index-body"
       }, body.substring(0, 113), "...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1193,7 +1189,7 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "story-index-tags"
       }, tags[0]))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/api/stories/show/".concat(id)
+        to: "/stories/show/".concat(id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "story-index-item-image",
         src: window.indexStoryImage
@@ -1417,7 +1413,7 @@ var YourStories = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "your-stories-header-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Your Stories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-        to: "/api/stories/create/"
+        to: "/stories/create/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Write a story"))), Object.values(this.props.stories).map(function (story) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_your_stories_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           deleteStory: _this.props.deleteStory,
@@ -1558,11 +1554,11 @@ var YourStoriesIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "your-story-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/api/stories/show/".concat(this.props.storyId)
+        to: "/stories/show/".concat(this.props.storyId)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "your-story-title"
       }, this.props.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/api/stories/show/".concat(this.props.storyId)
+        to: "/stories/show/".concat(this.props.storyId)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "your-story-body"
       }, this.props.body.substring(0, 113), "...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1576,7 +1572,7 @@ var YourStoriesIndexItem = /*#__PURE__*/function (_React$Component) {
       }, this.props.tags[0])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "your-story-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/api/stories/edit/".concat(this.props.storyId)
+        to: "/stories/edit/".concat(this.props.storyId)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "your-story-edit-button"
       }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1587,7 +1583,7 @@ var YourStoriesIndexItem = /*#__PURE__*/function (_React$Component) {
       }, "Delete"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "your-story-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/api/stories/show/".concat(this.props.storyId)
+        to: "/stories/show/".concat(this.props.storyId)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "your-story-index-item-image",
         src: window.indexStoryImage

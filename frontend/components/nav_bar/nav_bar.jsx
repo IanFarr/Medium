@@ -21,11 +21,11 @@ const NavBar = ({ currentUser, logout }) => {
             <Link to="/">
               <img src={window.navSavedIcon} />
             </Link>
-            <Link to="/api/stories/myStories">
+            <Link to="/stories/myStories">
               <img src={window.navStoriesIcon} />
             </Link>
             <div className="nav-space-border"></div>
-            <Link to="/api/stories/create/">
+            <Link to="/stories/create/">
               <img className="nav-create-icon" src={window.navCreateIcon} />
             </Link>
           </div>
