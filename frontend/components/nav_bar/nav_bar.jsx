@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, NavLink } from 'react-router-dom';
 
 const NavBar = ({ currentUser, logout }) => {
   if (currentUser !== undefined) {
@@ -12,22 +12,22 @@ const NavBar = ({ currentUser, logout }) => {
             </Link>
           </div>
           <div className="nav-icon-buttons-container">
-            <Link to="/">
+            <NavLink to="/">
               <img src={window.navHomeIcon} />
-            </Link>
-            <Link to="/">
+            </NavLink>
+            <NavLink to="/">
               <img src={window.navAlertIcon} />
-            </Link>
-            <Link to="/">
+            </NavLink>
+            <NavLink to="/">
               <img src={window.navSavedIcon} />
-            </Link>
-            <Link to="/stories/myStories">
+            </NavLink>
+            <NavLink to="/stories/myStories">
               <img src={window.navStoriesIcon} />
-            </Link>
+            </NavLink>
             <div className="nav-space-border"></div>
-            <Link to="/stories/create/">
+            <NavLink to="/stories/create/">
               <img className="nav-create-icon" src={window.navCreateIcon} />
-            </Link>
+            </NavLink>
           </div>
           <div className="nav-profile-button-container">
             <button className="header-button" onClick={logout}>Log Out</button>

@@ -36,15 +36,20 @@
   height: auto;
   margin-top: 20px;
   margin-bottom: 40px;
-  opacity: 80%;
+  opacity: 50%;
 }
 
 .nav-icon-buttons-container img:hover {
   opacity: 100%;
 }
 
+.active a {
+  opacity: 100%;
+}
+
 .nav-create-icon {
   padding-top: 20px;
+  margin-left: 1px;
 }
 
 .nav-space-border {
