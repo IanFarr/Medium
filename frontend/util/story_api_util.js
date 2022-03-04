@@ -20,13 +20,13 @@ export const createStory = story => (
   })
 )
 
-export const updateStory = story => (
-  $.ajax({
+export const updateStory = story => {
+  return $.ajax({
     method: 'PATCH',
     url: `api/stories/${story.id}`,
     data: { story }
   })
-)
+}
 
 export const deleteStory = storyId => (
   $.ajax({

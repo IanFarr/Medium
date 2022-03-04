@@ -1,0 +1,140 @@
+.your-stories-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 50px 70px 0px 70px;
+
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.your-stories-header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: Helvetica, Arial, sans-serif;
+
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.your-stories-header-container p {
+  border-radius: 20px;
+  background-color: #1b8917;
+  color: #f6f6f6;
+  padding: 7.5px 16px 7.5px 16px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.your-stories-header-container p:hover {
+  background-color: #0f730d;
+}
+
+.your-stories-header-container h1 {
+  font-size: 38px;
+  color: #292929;
+  font-weight: 800;
+}
+
+.your-story-item-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.your-story-info {
+  max-width: 500px;
+}
+
+.your-story-date-tag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+}
+
+.your-story-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.your-story-title {
+  color: #292929;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.your-story-body {
+  color: #757575;
+  font-size: 16px;
+}
+
+.your-story-date-tag {
+  color: #757575;
+  font-size: 13px;
+}
+
+.your-story-index-tags {
+  color: #757575;
+  font-weight: 200;
+  padding: 2px 7px 2px 7px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.your-story-index-date {
+  margin-right: 7px;
+}
+
+.your-story-index-tags:hover {
+  background-color: #e2e2e2;
+}
+
+.your-story-edit-button {
+  border-radius: 20px;
+  background-color: #1b8917;
+  opacity: 70%;
+  color: #f6f6f6;
+  padding: 2px 10px 2px 10px;
+  transition: 0.3s;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.your-story-edit-button:hover {
+  background-color: #0f730d;
+}
+
+.your-story-delete-button {
+  border-radius: 20px;
+  background-color: #FF5F5D;
+  opacity: 70%;
+  color: #f6f6f6;
+  padding: 2px 10px 2px 10px;
+  transition: 0.3s;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.your-story-delete-button:hover {
+  background-color: #f75957;
+}
+
+.your-story-image {
+  width: 200px;
+  height: auto;
+}
+
