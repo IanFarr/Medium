@@ -12,11 +12,11 @@ class YourStoriesIndexItem extends React.Component {
 
   handleDelete(storyId) {
     this.props.deleteStory(storyId)
-    this.setState({ mssg: "Hi there!" });
   }
 
 
   render() {
+    debugger
     return (
       <div className="your-story-item-container">
         <div className="your-story-info">
@@ -40,7 +40,11 @@ class YourStoriesIndexItem extends React.Component {
             <Link to={`/stories/edit/${this.props.storyId}`}>
               <p className="your-story-edit-button">Edit</p>
             </Link>
-            <button onClick={() => this.handleDelete(this.props.storyId)} className="your-story-delete-button">Delete</button>
+            <Link to={'/'}>
+              <button 
+              onClick={() => this.handleDelete(this.props.storyId)} 
+              className="your-story-delete-button">Delete</button>
+            </Link>
           </div>
         </div>
 

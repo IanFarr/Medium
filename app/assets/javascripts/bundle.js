@@ -1540,15 +1540,13 @@ var YourStoriesIndexItem = /*#__PURE__*/function (_React$Component) {
     key: "handleDelete",
     value: function handleDelete(storyId) {
       this.props.deleteStory(storyId);
-      this.setState({
-        mssg: "Hi there!"
-      });
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "your-story-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1575,12 +1573,14 @@ var YourStoriesIndexItem = /*#__PURE__*/function (_React$Component) {
         to: "/stories/edit/".concat(this.props.storyId)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "your-story-edit-button"
-      }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: '/'
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.handleDelete(_this2.props.storyId);
         },
         className: "your-story-delete-button"
-      }, "Delete"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Delete")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "your-story-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         to: "/stories/show/".concat(this.props.storyId)
