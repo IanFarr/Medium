@@ -1,8 +1,12 @@
+.your-stories-outer-container {
+  display: flex;
+}
+
 .your-stories-container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 50px 70px 0px 70px;
+  margin: 50px 100px 0px 30px;
 
   font-family: Helvetica, Arial, sans-serif;
 }

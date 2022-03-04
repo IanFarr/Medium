@@ -8,21 +8,36 @@ class StoryIndex extends React.Component {
   }
 
   render() {
-    
-
-    return (
-      <div>
-        <div className="story-index-container">
-          {this.props.stories.map(story => (
-            <StoryIndexItem
-              story={story}
-              fetchStories={this.props.fetchStories}
-              key={story.id}
-            />
-          ))}
+    console.log(this.props)
+    if (this.props.entitiesObject.session.id === null) {
+      return (
+        <div>
+          <div className="story-index-container">
+            {this.props.stories.map(story => (
+              <StoryIndexItem
+                story={story}
+                fetchStories={this.props.fetchStories}
+                key={story.id}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div>
+          <div className="story-index-container-logged">
+            {this.props.stories.map(story => (
+              <StoryIndexItem
+                story={story}
+                fetchStories={this.props.fetchStories}
+                key={story.id}
+              />
+            ))}
+          </div>
+        </div>
+      )
+    }
   }
 }
 

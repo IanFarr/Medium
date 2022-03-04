@@ -1,3 +1,8 @@
+.index-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .story-index-item-container {
   display: flex;
   flex-direction: row;
@@ -10,8 +15,8 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
-.story-index-item-container:first-child {
-  margin-top: 70px;
+.story-index-container-logged {
+  margin-left: 50px;
 }
 
 .story-index-item-container:last-child {

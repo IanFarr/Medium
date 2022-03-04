@@ -4,7 +4,8 @@ import { fetchStories } from "../../actions/story_actions";
 import { asArray } from "../../reducers/selectors";
 
 const mapStateToProps = state => ({
-  stories: asArray(state.entities)
+  stories: asArray(state.entities),
+  entitiesObject: state
 });
 
 const mapDispatchToProps = dispatch => ({

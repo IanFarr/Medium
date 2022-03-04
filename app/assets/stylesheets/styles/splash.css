@@ -45,6 +45,7 @@ header a {
   font-weight: 400;
   font-size: 18px;
   margin-top: 3px;
+  color: #000;
 }
 
 .header-link img {
@@ -58,6 +59,10 @@ header a {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
+}
+
+.login-signup > a {
+  color: #000;
 }
 
 header nav {
@@ -100,7 +105,6 @@ header nav {
   background-color: #090909;
 }
 
-
 .banner-content {
   display: flex;
   align-items: center;
@@ -113,12 +117,17 @@ header nav {
   border-bottom: 1px solid #000;
   background-color: #fec118;
   z-index: 1;
+  margin-top: 70px;
 }
 
 .banner-info {
   width: 580px;
   padding: 22px 0px 22px 0px;
   z-index: 1;
+}
+
+.banner-info a {
+  color: #000;
 }
 
 .banner-info h1 {

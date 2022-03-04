@@ -22,14 +22,6 @@ const Greeting = ({ currentUser, logout }) => {
 
     </div>
   );
-  const personalGreeting = () => (
-    <div>
-      <div className='logged-in-nav-bar-spacer'></div>
-      <hgroup className='nav-bar'>
-        <button className="header-button" onClick={logout}>Log Out</button>
-      </hgroup>
-    </div>
-  );
 
   // return currentUser ? personalGreeting() : sessionLinks();
   return currentUser ? null : sessionLinks();
