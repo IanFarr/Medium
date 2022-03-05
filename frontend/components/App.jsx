@@ -23,11 +23,15 @@ import CreateStoryFormContainer from './stories/create_story_form_container.js';
 import EditStoryFormContainer from './stories/edit_story_form_container';
 import YourStoriesContainer from './stories/your_stories_container';
 
+import ConfirmContainer from './stories/confirm_container';
+
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 const App = () => (
   <div>
+    <Route exact path="/confirm" component={ConfirmContainer} />
+
     <div className='your-stories-outer-container'>
       <ProtectedRoute exact path="/stories/myStories" component={NavBarContainer} />
       <ProtectedRoute exact path="/stories/myStories" component={YourStoriesContainer} />

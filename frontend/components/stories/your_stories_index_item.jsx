@@ -7,16 +7,26 @@ class YourStoriesIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      story: {
+        author: this.props.author,
+        authorId: this.props.authorId,
+        storyId: this.props.storyId,
+        title: this.props.title,
+        body: this.props.body,
+        tags: this.props.tags
+      }
+    }
+
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete(storyId) {
-    this.props.deleteStory(storyId)
+    this.props.deleteStory(storyId);
   }
 
-
   render() {
-    debugger
+
     return (
       <div className="your-story-item-container">
         <div className="your-story-info">
@@ -40,10 +50,8 @@ class YourStoriesIndexItem extends React.Component {
             <Link to={`/stories/edit/${this.props.storyId}`}>
               <p className="your-story-edit-button">Edit</p>
             </Link>
-            <Link to={'/'}>
-              <button 
-              onClick={() => this.handleDelete(this.props.storyId)} 
-              className="your-story-delete-button">Delete</button>
+            <Link to={{pathname: '/confirm', state: { storyId: this.props.storyId }}}>
+              <button className="your-story-delete-button">Delete</button>
             </Link>
           </div>
         </div>

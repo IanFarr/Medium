@@ -8,7 +8,6 @@ class YourStories extends React.Component {
   componentDidMount() {
     this.props.fetchStories();
   }
-
   
   render() {
 
