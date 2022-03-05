@@ -39,7 +39,7 @@
   opacity: 100%;
 }
 
-.active a {
+a .active {
   opacity: 100%;
 }
 

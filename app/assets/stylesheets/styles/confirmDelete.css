@@ -79,6 +79,7 @@
   font-weight: 400;
   font-size: 12px;
   cursor: pointer;
+  margin-right: 6px;
 }
 
 .confirm-delete-button:hover {
