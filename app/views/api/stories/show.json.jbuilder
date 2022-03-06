@@ -1,5 +1,5 @@
 id = @story.id
 
 json.set! id do
-  json.extract! @story, :id, :title, :body, :tags, :author, :author_id, :created_at
+  json.extract! @story, :id, :title, :body, :tags, :author, :author_id, :created_at, :claps
 end

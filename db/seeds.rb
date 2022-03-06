@@ -340,5 +340,35 @@ story5 = Story.create!(
   created_at: DateTime.now
 )
 
+clap1 = Clap.create!(
+  clapper_id: 1,
+  story_id: story1.id
+)
+
+clap2 = Clap.create!(
+  clapper_id: 2,
+  story_id: story1.id
+)
+
+clap3 = Clap.create!(
+  clapper_id: 3,
+  story_id: story1.id
+)
+
+clap4 = Clap.create!(
+  clapper_id: 4,
+  story_id: story1.id
+)
+
+clap4 = Clap.create!(
+  clapper_id: 1,
+  story_id: story2.id
+)
+
+clap4 = Clap.create!(
+  clapper_id: 1,
+  story_id: story3.id
+)
+
 
 

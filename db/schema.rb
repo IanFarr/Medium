@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_200039) do
+ActiveRecord::Schema.define(version: 2022_03_05_235647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2022_03_05_200039) do
     t.integer "story_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["clapper_id"], name: "index_claps_on_clapper_id", unique: true
-    t.index ["story_id"], name: "index_claps_on_story_id", unique: true
+    t.index ["clapper_id"], name: "index_claps_on_clapper_id"
+    t.index ["story_id"], name: "index_claps_on_story_id"
   end
 
   create_table "stories", force: :cascade do |t|

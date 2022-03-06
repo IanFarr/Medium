@@ -41,8 +41,11 @@ const App = () => (
 
     <ProtectedRoute exact path="/stories/create/" component={CreateStoryFormContainer} />
 
-    <Route exact path="/stories/show/:storyId" component={NavBarContainer} />
-    <Route exact path="/stories/show/:storyId" component={StoryShowContainer} />
+    <div className='show-container'>
+      <Route exact path="/stories/show/:storyId" component={GreetingContainer} />
+      <Route exact path="/stories/show/:storyId" component={NavBarContainer} />
+      <Route exact path="/stories/show/:storyId" component={StoryShowContainer} />
+    </div>
 
     <AuthRoute exact path="/login" component={LogInFormContainer} />
     <AuthRoute exact path="/signup" component={SignUpFormContainer} />

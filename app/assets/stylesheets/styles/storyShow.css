@@ -1,12 +1,22 @@
+.show-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .story-show-box {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  width: 100%;
 }
 
 .story-show-container {
   display: flex;
   flex-direction: column;
   margin: 55px 50px 0px 70px;
+  align-self: flex-start;
+  margin-bottom: 60px;
 }
 
 .story-show-author-container {

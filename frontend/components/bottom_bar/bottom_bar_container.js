@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import StoryShow from "./story_show";
+import BottomBar from "./bottom_bar";
 import { selectStory } from "../../reducers/selectors";
 import { fetchStories, fetchStory } from "../../actions/story_actions";
 import { createClap, deleteClap } from "../../actions/clap_actions"
@@ -7,10 +7,11 @@ import { createClap, deleteClap } from "../../actions/clap_actions"
 const mapStateToProps = (state, { match }) => {
   const storyId = parseInt(match.params.storyId);
   const story = selectStory(state.entities, storyId);
+  const enitities = state.entities
   return {
     story,
-    claps: story.claps,
-    users: state.entities.users
+    numClaps: story.claps,
+    enitities
   }
 }
 
@@ -22,4 +23,4 @@ const mapDispatchToProps = dispatch => ({
 
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(StoryShow);
+export default connect(mapStateToProps, mapDispatchToProps)(BottomBar);

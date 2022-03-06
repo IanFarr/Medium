@@ -5,6 +5,7 @@ const NavBar = ({ currentUser, logout }) => {
   if (currentUser !== undefined) {
     return (
       <div className="nav-bar-container">
+        <div className="nav-bar-spacer"></div>
         <div className="nav-bar-content">
           <div className="nav-logo-container">
             <Link to="/">
