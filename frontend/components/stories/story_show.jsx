@@ -1,7 +1,7 @@
 import React from "react";
 import Moment from "moment";
 
-import BottomBar from "../bottom_bar/bottom_bar";
+// import BottomBar from "../bottom_bar/bottom_bar";
 
 class StoryShow extends React.Component {
 
@@ -34,13 +34,13 @@ class StoryShow extends React.Component {
           </div>
           <p className="sory-show-body">{story.body}</p>
         </div>
-        <BottomBar 
+        {/* <BottomBar 
           claps={this.props.claps}
           createClap={this.props.createClap}
           deleteClap={this.props.deleteClap}
           story={story}
           user={this.props.users}
-        />
+        /> */}
       </div>
     )
   }

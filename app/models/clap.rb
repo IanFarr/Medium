@@ -1,4 +1,5 @@
 class Clap < ApplicationRecord
+  validates :clapper_id, uniqueness: { scope: :story_id }
 
   belongs_to :story
 

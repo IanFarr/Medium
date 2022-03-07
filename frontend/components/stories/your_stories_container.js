@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import YourStories from "./your_stories";
-import { selectYourStories, asArray } from "../../reducers/selectors";
+import { selectYourStories } from "../../reducers/selectors";
 import { fetchStories, deleteStory } from "../../actions/story_actions";
 
 const mapStateToProps = state => {
@@ -16,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
   deleteStory: (storyId) => dispatch(deleteStory(storyId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(YourStories);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(YourStories));

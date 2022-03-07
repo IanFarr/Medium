@@ -7,6 +7,9 @@
   width: 100%;
 
   border-top: 1px solid #e6e6e6;
+
+  background-color: #fff;
+  z-index: 2;
 }
 
 .bottom-bar-content {
@@ -16,8 +19,8 @@
   width: 100%;
   height: 50px;
   justify-content: space-between;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 110px;
+  margin-right: 110px;
   
 
   background-color: #fff;

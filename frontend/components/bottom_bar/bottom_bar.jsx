@@ -46,7 +46,6 @@ class BottomBar extends React.Component {
   }
 
   getClapImage() {
-    debugger
     if (Object.keys(this.props.user)[0] === undefined) {
       return (
         <img className="story-show-clap-icon-unclapped" src={window.clapIcon} />

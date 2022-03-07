@@ -370,5 +370,10 @@ clap4 = Clap.create!(
   story_id: story3.id
 )
 
+save1 = Save.create!(
+  user_id: demoUser.id,
+  story_id: story1.id
+)
+
 
 

@@ -1,11 +1,11 @@
 import * as clapApiUtil from '../util/clap_api_util';
 
-export const RECEIEVE_CLAP = 'RECEIEVE_CLAP';
+export const RECEIVE_CLAP = 'RECEIVE_CLAP';
 export const REMOVE_CLAP = 'REMOVE_CLAP';
 
 const receiveClap = (clap) => {
   return {
-    type: RECEIEVE_CLAP,
+    type: RECEIVE_CLAP,
     clap
   }
 };

@@ -22,6 +22,7 @@ import StoryShowContainer from './stories/story_show_container';
 import CreateStoryFormContainer from './stories/create_story_form_container.js';
 import EditStoryFormContainer from './stories/edit_story_form_container';
 import YourStoriesContainer from './stories/your_stories_container';
+import BottomBarContainer from './bottom_bar/bottom_bar_container';
 
 import ConfirmContainer from './stories/confirm_container';
 
@@ -45,6 +46,7 @@ const App = () => (
       <Route exact path="/stories/show/:storyId" component={GreetingContainer} />
       <Route exact path="/stories/show/:storyId" component={NavBarContainer} />
       <Route exact path="/stories/show/:storyId" component={StoryShowContainer} />
+      <Route exact path="/stories/show/:storyId" component={BottomBarContainer} />
     </div>
 
     <AuthRoute exact path="/login" component={LogInFormContainer} />

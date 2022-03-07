@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import StoryShow from "./story_show";
+import BottomBar from "./bottom_bar";
 import { selectStory } from "../../reducers/selectors";
-import { fetchStories, fetchStory } from "../../actions/story_actions";
 import { createClap, deleteClap } from "../../actions/clap_actions"
 
 const mapStateToProps = (state, { match }) => {
@@ -11,7 +10,7 @@ const mapStateToProps = (state, { match }) => {
   return {
     story,
     claps: story.claps,
-    users: state.entities.users
+    user: state.entities.users
   }
 }
 
@@ -23,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
 
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StoryShow));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BottomBar));

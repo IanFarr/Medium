@@ -1,7 +1,7 @@
 export const fetchClap = clapId => (
   $.ajax({
     method: 'GET',
-    url: `api/stories/${clapId}`
+    url: `api/claps/${clapId}`
   })
 )
 
