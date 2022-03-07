@@ -421,6 +421,15 @@ var BottomBar = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getClapImage",
     value: function getClapImage() {
+      debugger;
+
+      if (Object.keys(this.props.user)[0] === undefined) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "story-show-clap-icon-unclapped",
+          src: window.clapIcon
+        });
+      }
+
       var clapperIds = this.getClapperIds(this.props.claps);
       var userId = this.props.user[Object.keys(this.props.user)[0]].id;
 

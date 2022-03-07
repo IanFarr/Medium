@@ -46,6 +46,12 @@ class BottomBar extends React.Component {
   }
 
   getClapImage() {
+    debugger
+    if (Object.keys(this.props.user)[0] === undefined) {
+      return (
+        <img className="story-show-clap-icon-unclapped" src={window.clapIcon} />
+      )
+    }
     let clapperIds = this.getClapperIds(this.props.claps)
     let userId = this.props.user[(Object.keys(this.props.user)[0])].id
 
@@ -66,7 +72,6 @@ class BottomBar extends React.Component {
     } else {
       return (
         <div className='bottom-bar-container'>
-          {/* <div className='bottom-bar-spacer' ></div> */}
           <div className='bottom-bar-content'>
             <div className='bottom-bar-left'>
               {this.getClapImage()}
