@@ -8,6 +8,10 @@
 
 demoUser = User.create!(full_name: 'DemoUser', email: 'demo@demo.com', password: 'demopassword')
 
+user1 = User.create!(full_name: 'User1', email: 'user1@demo.com', password: '123456')
+user2 = User.create!(full_name: 'User2', email: 'user2@demo.com', password: '123456')
+user3 = User.create!(full_name: 'User3', email: 'user3@demo.com', password: '123456')
+
 
 
 story1 = Story.create!(
@@ -370,9 +374,24 @@ clap4 = Clap.create!(
   story_id: story3.id
 )
 
-save1 = Save.create!(
+list1 = List.create!(
   user_id: demoUser.id,
   story_id: story1.id
+)
+
+list2 = List.create!(
+  user_id: demoUser.id,
+  story_id: story2.id
+)
+
+list3 = List.create!(
+  user_id: user1.id,
+  story_id: story2.id
+)
+
+list3 = List.create!(
+  user_id: user2.id,
+  story_id: story2.id
 )
 
 

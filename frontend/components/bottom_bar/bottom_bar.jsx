@@ -6,7 +6,9 @@ class BottomBar extends React.Component {
     super(props)
     
     this.handleClap = this.handleClap.bind(this);
+    this.handleSave = this.handleSave.bind(this);
     this.getClapImage = this.getClapImage.bind(this);
+    this.getSaveImage = this.getSaveImage.bind(this);
   }
 
   handleClap() {
@@ -32,6 +34,29 @@ class BottomBar extends React.Component {
     }
 
     return clapperIds;
+  }
+
+  handleSave(action) {
+    let userId = this.props.user[(Object.keys(this.props.user)[0])].id;
+    const lists = this.props.user[userId].lists;
+
+    if (action === 'remove') {
+      const listId = this.getListId(lists, userId);
+      this.props.deleteList(listId);
+    } else {
+      this.props.createList({ user_id: userId, story_id: this.props.story.id });
+    }
+  }
+
+  getListId(lists, userId) {
+    let listId
+    Object.keys(lists).forEach(key => {
+      if (lists[key].user_id === userId) {
+        listId = lists[key].id
+      }
+    })
+
+    return listId
   }
 
   getClapId(claps, userId) {
@@ -65,6 +90,30 @@ class BottomBar extends React.Component {
     }
   }
 
+  getSaveImage() {
+    if (Object.keys(this.props.user)[0] === undefined) {
+      return (
+        <img className="story-show-save-icon" src={window.navSavedIcon} />
+      )
+    }
+    const userId = Object.keys(this.props.user)[0];
+    const lists = this.props.user[userId].lists;
+    let savedIds = [];
+    Object.keys(lists).forEach(saveId => {
+      savedIds.push(lists[saveId].story_id)
+    })
+
+    if (savedIds.includes(this.props.story.id)) {
+      return (
+        <img onClick={() => this.handleSave('remove')} className="story-show-save-icon-saved" src={window.saveIconSaved} />
+      )
+    } else {
+      return (
+        <img onClick={() => this.handleSave('add')} className="story-show-save-icon" src={window.navSavedIcon} />
+      )
+    }
+  }
+
   render() {
     if (this.props.claps === undefined) {
       return null
@@ -77,7 +126,7 @@ class BottomBar extends React.Component {
               <h1>{Object.keys(this.props.claps).length}</h1>
             </div>
             <div className='bottom-bar-right'>
-              <img className="story-show-save-icon" src={window.navSavedIcon} />
+              {this.getSaveImage()}
             </div>
           </div>
         </div>

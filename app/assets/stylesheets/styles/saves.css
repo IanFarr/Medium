@@ -1,0 +1,36 @@
+.saved-story-index-item-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 680px;
+  margin: 40px 50px 0px 70px;
+
+  font-family: Helvetica, Arial, sans-serif;
+
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.saved-story-index-container-logged {
+  margin-top: 50px;
+  margin-left: 70px;
+}
+
+.saved-story-index-item-container:last-child {
+  margin-bottom: 70px;
+  border-bottom: none;
+}
+
+.saved-stories-title {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 38px;
+  color: #292929;
+  font-weight: 800;
+
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.saved-story-index-container-logged .story-index-item-container {
+  margin-left: 0px;
+  width: 100%;
+}

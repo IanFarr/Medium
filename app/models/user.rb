@@ -8,14 +8,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :saves
-  has_many :saved_stories,
-    through: :saves,
-    source: :story
-
-
-
-
+  has_many :lists, dependent: :destroy
 
 
   def self.find_by_credentials(email, password)

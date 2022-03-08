@@ -19,7 +19,7 @@ const NavBar = ({ currentUser, logout }) => {
             <NavLink to="/">
               <img src={window.navAlertIcon} />
             </NavLink>
-            <NavLink to="/">
+            <NavLink to="/stories/saves">
               <img src={window.navSavedIcon} />
             </NavLink>
             <NavLink to="/stories/myStories">

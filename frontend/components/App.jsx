@@ -23,6 +23,7 @@ import CreateStoryFormContainer from './stories/create_story_form_container.js';
 import EditStoryFormContainer from './stories/edit_story_form_container';
 import YourStoriesContainer from './stories/your_stories_container';
 import BottomBarContainer from './bottom_bar/bottom_bar_container';
+import SavesContainer from './saves/saves_container';
 
 import ConfirmContainer from './stories/confirm_container';
 
@@ -41,6 +42,11 @@ const App = () => (
     <ProtectedRoute exact path="/stories/edit/:storyId" component={EditStoryFormContainer} />
 
     <ProtectedRoute exact path="/stories/create/" component={CreateStoryFormContainer} />
+
+    <div className='show-container'>
+      <Route exact path="/stories/saves" component={NavBarContainer} />
+      <Route exact path="/stories/saves" component={SavesContainer} />
+    </div>
 
     <div className='show-container'>
       <Route exact path="/stories/show/:storyId" component={GreetingContainer} />

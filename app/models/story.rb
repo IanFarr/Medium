@@ -3,8 +3,4 @@ class Story < ApplicationRecord
 
   has_many :claps, dependent: :destroy
 
-  has_many :saves
-  has_many :save_users,
-    through: :saves
-
 end
