@@ -1,8 +1,6 @@
 import React from "react";
 import Moment from "moment";
 
-// import BottomBar from "../bottom_bar/bottom_bar";
-
 class StoryShow extends React.Component {
 
   constructor(props) {
@@ -11,6 +9,10 @@ class StoryShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.storyId);
+  }
+
+  componentWillUnmount() {
+    this.props.fetchStories
   }
 
   render() {
@@ -34,13 +36,6 @@ class StoryShow extends React.Component {
           </div>
           <p className="sory-show-body">{story.body}</p>
         </div>
-        {/* <BottomBar 
-          claps={this.props.claps}
-          createClap={this.props.createClap}
-          deleteClap={this.props.deleteClap}
-          story={story}
-          user={this.props.users}
-        /> */}
       </div>
     )
   }

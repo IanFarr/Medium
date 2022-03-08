@@ -17,6 +17,7 @@ import LogInFormContainer from './session_form/login_form_container';
 
 import NavBarContainer from './nav_bar/nav_bar_container';
 
+import TrendingContainer from './trending/trending_container';
 import StoryIndexContainer from './stories/story_index_container';
 import StoryShowContainer from './stories/story_show_container';
 import CreateStoryFormContainer from './stories/create_story_form_container.js';
@@ -62,6 +63,7 @@ const App = () => (
     <Route exact path="/" component={GreetingContainer} />
     <div className='index-content-container'>
       <Route exact path="/" component={NavBarContainer} />
+      <Route exact path="/" component={TrendingContainer} />
       <Route exact path="/" component={StoryIndexContainer} />
     </div>
   </div>

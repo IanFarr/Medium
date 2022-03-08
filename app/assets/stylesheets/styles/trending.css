@@ -1,0 +1,104 @@
+.trending-outer-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.trending-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.trending-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.trending-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 13px;
+}
+
+.trending-title-container h1 {
+  font-size: 12px;
+  color: 2d2d2d;
+}
+
+.trending-items-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 15px;
+}
+
+.trending-story-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 300px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+
+.trending-story-item h4 {
+  font-size: 30px;
+  margin-right: 18px;
+  margin-top: -10px;
+  color: #e6e6e6;
+}
+
+.trending-story-info {
+
+}
+
+.trending-author-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.trending-author-container img {
+  width: 18px;
+  height: auto;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.trending-author-container h3 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #292929;
+}
+
+.trending-story-info h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2f2f2f;
+  margin-top: 5px;
+}
+
+.trending-date-container p {
+  font-size: 13px;
+  font-weight: 200;
+  color: #757575;
+  margin-top: 7px;
+}
+
+@media only screen and (min-width: 1400px) {
+
+  .trending-story-item {
+    width: 380px;
+  }
+
+}

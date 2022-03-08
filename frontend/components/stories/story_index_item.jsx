@@ -4,9 +4,9 @@ import Moment from "moment";
 
 class StoryIndexItem extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchStories();
-  }
+  // componentDidMount() {
+  //   this.props.fetchStories();
+  // }
 
   render() {
 

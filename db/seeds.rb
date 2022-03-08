@@ -866,6 +866,36 @@ clap12 = Clap.create!(
   story_id: story9.id
 )
 
+clap13 = Clap.create!(
+  clapper_id: 123,
+  story_id: story12.id
+)
+
+clap14 = Clap.create!(
+  clapper_id: 124,
+  story_id: story12.id
+)
+
+clap15 = Clap.create!(
+  clapper_id: 125,
+  story_id: story12.id
+)
+
+clap16 = Clap.create!(
+  clapper_id: 126,
+  story_id: story12.id
+)
+
+clap17 = Clap.create!(
+  clapper_id: 127,
+  story_id: story12.id
+)
+
+clap18 = Clap.create!(
+  clapper_id: 128,
+  story_id: story12.id
+)
+
 list1 = List.create!(
   user_id: demoUser.id,
   story_id: story1.id
