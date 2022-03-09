@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-rails'
 gem 'activestorage'
-# gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3", require: false
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
