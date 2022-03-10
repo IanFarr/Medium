@@ -25,11 +25,15 @@ class BottomBar extends React.Component {
 
   getClapperIds(claps) {
     const clapperIds = [];
-    if (Object.keys(claps).length === 0) {
+    if (claps.length === 0) {
       return [];
     } else {
-      Object.keys(claps).forEach(clapKey => {
-        clapperIds.push(claps[clapKey].clapper_id)
+      claps.forEach(clap => {
+        if (clap.clapper_id === undefined) {
+          clapperIds.push(clap[Object.keys(clap)].clapper_id)
+        } else {
+          clapperIds.push(clap.clapper_id)
+        }
       })
     }
 
@@ -61,9 +65,16 @@ class BottomBar extends React.Component {
 
   getClapId(claps, userId) {
     let clapId
-    Object.keys(claps).forEach(clapKey => {
-      if (claps[clapKey].clapper_id === userId) {
-        clapId = claps[clapKey].id
+    claps.forEach(clap => {
+      debugger
+      if (clap.clapper_id === undefined) {
+        if (clap[Object.keys(clap)].clapper_id === userId) {
+          clapId = Number(Object.keys(clap)[0]);
+        }
+      } else {
+        if (clap.clapper_id === userId) {
+          clapId = clap.id;
+        }
       }
     })
 
@@ -123,7 +134,7 @@ class BottomBar extends React.Component {
           <div className='bottom-bar-content'>
             <div className='bottom-bar-left'>
               {this.getClapImage()}
-              <h1>{Object.keys(this.props.claps).length}</h1>
+              <h1>{this.props.claps.length}</h1>
             </div>
             <div className='bottom-bar-right'>
               {this.getSaveImage()}

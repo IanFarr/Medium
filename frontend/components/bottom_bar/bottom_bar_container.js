@@ -10,7 +10,7 @@ const mapStateToProps = (state, { match }) => {
   const story = selectStory(state.entities, storyId);
   return {
     story,
-    claps: story.claps,
+    claps: Object.values(state.entities.claps),
     user: state.entities.users
   }
 }

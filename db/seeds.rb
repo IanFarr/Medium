@@ -80,6 +80,15 @@ story1 = Story.create!(
   created_at: DateTime.now
 )
 
+
+require 'open-uri'
+
+image = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/book.jpg')
+puts image
+story1.photo.attach(io: File.open(image), filename: 'book.jpg')
+
+
+
 story2 = Story.create!(
   title: 'Second Story',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \

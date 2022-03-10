@@ -1,7 +1,7 @@
 import * as storyApiUtil from '../util/story_api_util';
 
 export const RECEIVE_ALL_STORIES = 'RECEIVE_ALL_STORIES';
-export const RECEIEVE_STORY = 'RECEIEVE_STORY';
+export const RECEIVE_STORY = 'RECEIVE_STORY';
 export const REMOVE_STORY = 'REMOVE_STORY';
 
 const receiveAllStories = (stories) => ({
@@ -9,10 +9,10 @@ const receiveAllStories = (stories) => ({
   stories
 });
 
-const receiveStory = (story) => {
+const receiveStory = (payload) => {
   return {
-    type: RECEIEVE_STORY,
-    story
+    type: RECEIVE_STORY,
+    payload
   }
 };
 

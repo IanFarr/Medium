@@ -28,11 +28,18 @@ import SavesContainer from './saves/saves_container';
 
 import ConfirmContainer from './stories/confirm_container';
 
+import UploadImage from './stories/create_story_image'
+
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 const App = () => (
   <div>
+    <Route exact path="/image" component={UploadImage} />
+
+
+
+
     <Route exact path="/confirm" component={ConfirmContainer} />
 
     <div className='your-stories-outer-container'>

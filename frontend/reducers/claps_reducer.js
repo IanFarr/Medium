@@ -2,6 +2,9 @@ import {
   RECEIVE_CLAP,
   REMOVE_CLAP
 } from '../actions/clap_actions'
+import {
+  RECEIVE_STORY
+} from '../actions/story_actions'
 
 const clapsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -9,10 +12,12 @@ const clapsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CLAP:
-      return nextState[action.clap.id] = action.clap;
+      return Object.assign({}, nextState, { [Object.keys(action.clap)[0]]: action.clap })
     case REMOVE_CLAP:
-      delete nextState[action.clapId];
+      delete nextState[Object.keys(action.clapId)[0]];
       return nextState;
+    case RECEIVE_STORY:
+      return action.payload.claps
     default:
       return state;
   }
