@@ -9,7 +9,6 @@ class Trending extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.stories === []) return null;
     if (this.props.stories[0] === undefined) return null;
     if (this.props.stories.length < 6) return null;

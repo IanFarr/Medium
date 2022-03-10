@@ -10,7 +10,8 @@ class StoryIndexItem extends React.Component {
 
   render() {
 
-    const { id, title, body, tags, author, created_at } = this.props.story;
+    const { id, title, body, tags, author, photoUrl, created_at } = this.props.story;
+    debugger
 
     return (
       <div className="story-index-item-container">
@@ -44,7 +45,9 @@ class StoryIndexItem extends React.Component {
 
         <Link to={`/stories/show/${id}`}>
           <img className="story-index-item-image"
-          src={window.indexStoryImage} />
+            src={photoUrl} 
+          />
+          {/* src={window.indexStoryImage} /> */}
         </Link>
 
       </div>

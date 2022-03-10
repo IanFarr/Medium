@@ -27,6 +27,7 @@ class YourStories extends React.Component {
               storyId={story.id}
               title={story.title}
               body={story.body}
+              photoUrl={story.photoUrl}
               tags={story.tags}
               key={story.id}
             />

@@ -58,7 +58,7 @@ class YourStoriesIndexItem extends React.Component {
 
         <div className="your-story-image">
           <Link to={`/stories/show/${this.props.storyId}`}>
-            <img className="your-story-index-item-image" src={window.indexStoryImage} />
+            <img className="your-story-index-item-image" src={this.props.photoUrl} />
           </Link>
         </div>
       </div>

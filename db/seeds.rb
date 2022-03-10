@@ -84,7 +84,6 @@ story1 = Story.create!(
 require 'open-uri'
 
 image = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/book.jpg')
-puts image
 story1.photo.attach(io: File.open(image), filename: 'book.jpg')
 
 
@@ -814,6 +813,50 @@ story12 = Story.create!(
   author_id: 5,
   created_at: DateTime.now
 )
+
+# story images
+
+require 'open-uri'
+
+image1 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/stairs.jpg')
+story1.photo.attach(io: File.open(image1), filename: 'stairs.jpg')
+
+image2 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/studio.jpg')
+story2.photo.attach(io: File.open(image2), filename: 'studio.jpg')
+
+image3 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/danger-reading.jpg')
+story3.photo.attach(io: File.open(image3), filename: 'danger-reading.jpg')
+
+image4 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/blossom.jpg')
+story4.photo.attach(io: File.open(image4), filename: 'blossom.jpg')
+
+image5 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/lighthouse.jpg')
+story5.photo.attach(io: File.open(image5), filename: 'lighthouse.jpg')
+
+image6 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/lions.jpg')
+story6.photo.attach(io: File.open(image6), filename: 'lions.jpg')
+
+image7 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/creepy.jpg')
+story7.photo.attach(io: File.open(image7), filename: 'creepy.jpg')
+
+image8 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/mountain.jpg')
+story8.photo.attach(io: File.open(image8), filename: 'mountain.jpg')
+
+image9 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/beach-waves.jpg')
+story9.photo.attach(io: File.open(image9), filename: 'beach-waves.jpg')
+
+image10 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/rock-pattern.jpg')
+story10.photo.attach(io: File.open(image10), filename: 'rock-pattern.jpg')
+
+image11 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/skye.jpg')
+story11.photo.attach(io: File.open(image11), filename: 'skye.jpg')
+
+image12 = URI.open('https://medium-ian-farr-seeds.s3.us-west-1.amazonaws.com/book.jpg')
+story12.photo.attach(io: File.open(image12), filename: 'book.jpg')
+
+
+
+# Claps
 
 clap1 = Clap.create!(
   clapper_id: 1,

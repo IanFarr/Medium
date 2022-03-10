@@ -2064,7 +2064,9 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
           body = _this$props$story.body,
           tags = _this$props$story.tags,
           author = _this$props$story.author,
+          photoUrl = _this$props$story.photoUrl,
           created_at = _this$props$story.created_at;
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "story-index-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2096,7 +2098,7 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
         to: "/stories/show/".concat(id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "story-index-item-image",
-        src: window.indexStoryImage
+        src: photoUrl
       })));
     }
   }]);
@@ -2194,7 +2196,7 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
         className: "story-body-image-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "story-show-body-image",
-        src: window.showStoryImage
+        src: story.photoUrl
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "sory-show-body"
       }, story.body)));
@@ -2343,6 +2345,7 @@ var YourStories = /*#__PURE__*/function (_React$Component) {
           storyId: story.id,
           title: story.title,
           body: story.body,
+          photoUrl: story.photoUrl,
           tags: story.tags,
           key: story.id
         });
@@ -2518,7 +2521,7 @@ var YourStoriesIndexItem = /*#__PURE__*/function (_React$Component) {
         to: "/stories/show/".concat(this.props.storyId)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "your-story-index-item-image",
-        src: window.indexStoryImage
+        src: this.props.photoUrl
       }))));
     }
   }]);
@@ -2591,7 +2594,6 @@ var Trending = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      debugger;
       if (this.props.stories === []) return null;
       if (this.props.stories[0] === undefined) return null;
       if (this.props.stories.length < 6) return null;
