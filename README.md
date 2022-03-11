@@ -18,11 +18,20 @@ ability to 'clap' (Medium's version of Likes) for stories and bookmark stories f
 
 ## Technologies
 
-- Rails
-  (Me)dium uses a rails backend to manage database calls and accurately present the information we want to the front-end.
-- PostgreSQL
-  (Me)dium's database is built using PostgreSQL.
-- Redux
-  Uses Redux.
-- React
-  Uses React.
+- ### Rails
+
+  (Me)dium uses a rails backend to manage database calls and accurately present the JSON information we want to the front-end.
+
+- ### PostgreSQL
+
+  (Me)dium's database is built using PostgreSQL. Information regarding Users, Stories, Claps, and Saves is handled independently and
+  relationships exist between tables where required.
+  
+- ### Redux
+
+  (Me)dium's application state is managed using the Redux library.
+
+- ### React
+
+  (Me)dium's front-end user interface is developed using React. (Me)dium is a single-page app with components that re-render individually
+  when necessary to display up-to-date information to the user.
