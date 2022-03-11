@@ -8,15 +8,20 @@
 
 demoUser = User.create!(full_name: 'DemoUser', email: 'demo@demo.com', password: 'demopassword')
 
-user1 = User.create!(full_name: 'User1', email: 'user1@demo.com', password: '123456')
-user2 = User.create!(full_name: 'User2', email: 'user2@demo.com', password: '123456')
-user3 = User.create!(full_name: 'User3', email: 'user3@demo.com', password: '123456')
+user1 = User.create!(full_name: 'Ian Farr', email: 'user1@demo.com', password: '123456')
+user2 = User.create!(full_name: 'Ian\'s Mom', email: 'user2@demo.com', password: '123456')
+user3 = User.create!(full_name: 'Totally Not Ian', email: 'user3@demo.com', password: '123456')
+user4 = User.create!(full_name: 'Ian\'s Old Co-workers', email: 'user4@demo.com', password: '123456')
+user5 = User.create!(full_name: 'Kanye West', email: 'user5@demo.com', password: '123456')
 
 
 
 story1 = Story.create!(
-  title: 'Story Title',
-  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
+  title: 'Is It Too Early to Make Ian The Boss?',
+  body: "Probably, ya. \
+  
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
   Integer molestie risus quis metus condimentum tempor. Proin euismod \
@@ -74,9 +79,9 @@ story1 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['illiterate'],
-  author: 'Ian Farr',
-  author_id: 1,
+  tags: ['story'],
+  author: user3.full_name,
+  author_id: user3.id,
   created_at: DateTime.now
 )
 
@@ -89,7 +94,7 @@ story1.photo.attach(io: File.open(image), filename: 'book.jpg')
 
 
 story2 = Story.create!(
-  title: 'Second Story',
+  title: 'We Miss Him So Much',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -104,6 +109,7 @@ story2 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -117,6 +123,7 @@ story2 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -125,6 +132,7 @@ story2 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -136,6 +144,7 @@ story2 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -148,15 +157,23 @@ story2 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['cool'],
-  author: 'Some Guy',
-  author_id: 2,
+  tags: ['story'],
+  author: user4.full_name,
+  author_id: user4.id,
   created_at: DateTime.now
 )
 
 story3 = Story.create!(
-  title: 'Third Story',
-  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
+  title: 'Why Would You Read Here?',
+  body: "Is reading not thrilling enough? This guy is just going to sit on the \
+  edge of a cliff and find out what Harry, Ron and Hermoine are up to? \
+  
+
+  Upon closer examination, I've realized that this man is on a laptop and is not in \
+  fact reading. My bad. Makes total sense now. \
+  
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
   Integer molestie risus quis metus condimentum tempor. Proin euismod \
@@ -170,6 +187,7 @@ story3 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -183,45 +201,22 @@ story3 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
   et, sagittis quis lacus. Sed facilisis lacinia porttitor. Etiam vel ante ut \
   tellus scelerisque vulputate id auctor purus. Sed facilisis auctor velit \
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
-  Aliquam sit amet ex nisl.\
-  
-  Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
-  Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
-  sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
-  adipiscing elit. Aenean ut leo odio. Nunc dui ante, vestibulum nec metus \
-  sed, iaculis blandit nulla. Etiam facilisis, felis eget lacinia mollis, enim \
-  libero pharetra purus, id blandit mauris enim nec dolor. Sed condimentum, \
-  libero in ultricies vehicula, nulla arcu pretium neque, vitae volutpat neque \
-  mauris a neque. Etiam id enim ex. Donec volutpat tincidunt felis, sit amet \
-  tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
-  erat quis ipsum varius, sit amet pellentesque erat laoreet.\
-  
-  Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
-  feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
-  Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
-  faucibus consectetur, ante leo aliquet massa, eget dignissim massa arcu ac \
-  nunc. Donec sit amet blandit ipsum. Pellentesque sagittis facilisis lacus, \
-  eget pulvinar enim luctus vitae. Etiam bibendum et lacus eget sollicitudin. \
-  Maecenas purus diam, faucibus id ullamcorper sed, rutrum in sapien. Sed \
-  gravida metus felis, ultrices ornare turpis ullamcorper ut. Ut tempor nunc id \
-  diam lacinia fermentum. Cras pretium scelerisque felis, sit amet lacinia orci. \
-  Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
-  erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
-  tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['scary'],
-  author: 'Some Girl',
-  author_id: 3,
+  Aliquam sit amet ex nisl.",
+  tags: ['story'],
+  author: user3.full_name,
+  author_id: user3.id,
   created_at: DateTime.now
 )
 
 story4 = Story.create!(
-  title: 'Fourth Story',
+  title: 'The Struggle of Living in Ian\'s Shadow',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -236,6 +231,7 @@ story4 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -249,6 +245,7 @@ story4 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -257,6 +254,7 @@ story4 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -268,6 +266,7 @@ story4 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -280,14 +279,14 @@ story4 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['sports'],
-  author: 'Some Girl',
-  author_id: 4,
+  tags: ['story'],
+  author: user3.full_name,
+  author_id: user3.id,
   created_at: DateTime.now
 )
 
 story5 = Story.create!(
-  title: 'Fifth Story',
+  title: 'Is This Joke Getting Old?',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -302,6 +301,7 @@ story5 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -315,6 +315,7 @@ story5 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -323,6 +324,7 @@ story5 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -334,6 +336,7 @@ story5 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -346,14 +349,14 @@ story5 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+  tags: ['story'],
+  author: user3.full_name,
+  author_id: user3.id,
   created_at: DateTime.now
 )
 
 story6 = Story.create!(
-  title: 'Sixth Story',
+  title: 'Turns Out I\'m The 2nd Greatest',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -368,6 +371,7 @@ story6 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -381,6 +385,7 @@ story6 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -389,6 +394,7 @@ story6 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -400,6 +406,7 @@ story6 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -412,14 +419,14 @@ story6 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+  tags: ['story'],
+  author: user5.full_name,
+  author_id: user5.id,
   created_at: DateTime.now
 )
 
 story7 = Story.create!(
-  title: 'Seventh Story',
+  title: 'When Can Ian Start?',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -434,6 +441,7 @@ story7 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -447,6 +455,7 @@ story7 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -455,6 +464,7 @@ story7 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -466,6 +476,7 @@ story7 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -478,80 +489,23 @@ story7 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+  tags: ['story'],
+  author: user3.full_name,
+  author_id: user3.id,
   created_at: DateTime.now
 )
 
 story8 = Story.create!(
-  title: 'Eighth Story',
-  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
-  interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
-  leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
-  Integer molestie risus quis metus condimentum tempor. Proin euismod \
-  ultrices neque, a dictum mauris iaculis eu. Aliquam nec mauris risus. \
-  Curabitur tristique tempus erat, et gravida dolor tincidunt nec. Fusce \
-  pellentesque nec nibh quis congue. Aliquam tristique semper mi, eu laoreet \
-  nunc tincidunt eget. Nunc lectus leo, tincidunt id dapibus sit amet, posuere \
-  a magna. Vestibulum id lorem eget metus mollis sodales. Sed sit amet enim et \
-  nunc blandit lobortis non et libero. Etiam turpis purus, placerat vel blandit \
-  non, varius eget ligula. Donec scelerisque libero vel nisl ultrices, a \
-  sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
-  dignissim enim, eu euismod diam.\
-  
-  Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
-  Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
-  dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
-  eleifend, nibh tortor volutpat quam, in molestie erat dolor nec elit. Nullam \
-  tempor, mauris et sagittis tempus, mi dolor iaculis risus, eu aliquam elit \
-  dolor laoreet risus. Suspendisse lorem diam, maximus at malesuada ut, rutrum \
-  vitae tellus. Integer tortor magna, tristique vitae ipsum quis, vestibulum \
-  laoreet arcu. Duis dignissim libero eget eros euismod dictum. Nulla at \
-  convallis lacus. Interdum et malesuada fames ac ante ipsum primis in \
-  faucibus. Donec maximus, diam sed viverra venenatis, dolor metus fringilla \
-  libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
-  Fusce id consequat mauris.\
-  
-  Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
-  tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
-  Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
-  et, sagittis quis lacus. Sed facilisis lacinia porttitor. Etiam vel ante ut \
-  tellus scelerisque vulputate id auctor purus. Sed facilisis auctor velit \
-  eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
-  Aliquam sit amet ex nisl.\
-  
-  Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
-  Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
-  sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
-  adipiscing elit. Aenean ut leo odio. Nunc dui ante, vestibulum nec metus \
-  sed, iaculis blandit nulla. Etiam facilisis, felis eget lacinia mollis, enim \
-  libero pharetra purus, id blandit mauris enim nec dolor. Sed condimentum, \
-  libero in ultricies vehicula, nulla arcu pretium neque, vitae volutpat neque \
-  mauris a neque. Etiam id enim ex. Donec volutpat tincidunt felis, sit amet \
-  tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
-  erat quis ipsum varius, sit amet pellentesque erat laoreet.\
-  
-  Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
-  feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
-  Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
-  faucibus consectetur, ante leo aliquet massa, eget dignissim massa arcu ac \
-  nunc. Donec sit amet blandit ipsum. Pellentesque sagittis facilisis lacus, \
-  eget pulvinar enim luctus vitae. Etiam bibendum et lacus eget sollicitudin. \
-  Maecenas purus diam, faucibus id ullamcorper sed, rutrum in sapien. Sed \
-  gravida metus felis, ultrices ornare turpis ullamcorper ut. Ut tempor nunc id \
-  diam lacinia fermentum. Cras pretium scelerisque felis, sit amet lacinia orci. \
-  Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
-  erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
-  tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+  title: 'How to Make Your Team Even Better',
+  body: "Hire Ian.",
+  tags: ['story'],
+  author: user3.full_name,
+  author_id: user3.id,
   created_at: DateTime.now
 )
 
 story9 = Story.create!(
-  title: 'Ninth Story',
+  title: 'How to be More Like Ian',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -566,6 +520,7 @@ story9 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -579,6 +534,7 @@ story9 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -587,6 +543,7 @@ story9 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -598,6 +555,7 @@ story9 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -610,14 +568,14 @@ story9 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+  tags: ['story'],
+  author: user3.full_name,
+  author_id: user3.id,
   created_at: DateTime.now
 )
 
 story10 = Story.create!(
-  title: 'tenth Story',
+  title: 'How to Come Up with More Story Titles',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -632,6 +590,7 @@ story10 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -645,6 +604,7 @@ story10 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -653,6 +613,7 @@ story10 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -664,6 +625,7 @@ story10 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -676,14 +638,14 @@ story10 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+  tags: ['story'],
+  author: demoUser.full_name,
+  author_id: demoUser.id,
   created_at: DateTime.now
 )
 
 story11 = Story.create!(
-  title: 'Eleventh Story',
+  title: 'Delete Me',
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
   interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
   leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
@@ -698,6 +660,7 @@ story11 = Story.create!(
   sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
   dignissim enim, eu euismod diam.\
   
+
   Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
   Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
   dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
@@ -711,6 +674,7 @@ story11 = Story.create!(
   libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
   Fusce id consequat mauris.\
   
+
   Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
   tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
   Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
@@ -719,6 +683,7 @@ story11 = Story.create!(
   eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
   Aliquam sit amet ex nisl.\
   
+
   Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
   Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
   sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
@@ -730,6 +695,7 @@ story11 = Story.create!(
   tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
   erat quis ipsum varius, sit amet pellentesque erat laoreet.\
   
+
   Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
   feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
   Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
@@ -742,75 +708,47 @@ story11 = Story.create!(
   Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
   erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
   tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+  tags: ['story'],
+  author: demoUser.full_name,
+  author_id: demoUser.id,
   created_at: DateTime.now
 )
 
 story12 = Story.create!(
-  title: 'Twelfth Story',
-  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus \
-  interdum nunc nibh, convallis placerat ipsum posuere ac. Suspendisse maximus \
-  leo eget lacus volutpat fringilla. Sed a viverra arcu, sed porttitor leo. \
-  Integer molestie risus quis metus condimentum tempor. Proin euismod \
-  ultrices neque, a dictum mauris iaculis eu. Aliquam nec mauris risus. \
-  Curabitur tristique tempus erat, et gravida dolor tincidunt nec. Fusce \
-  pellentesque nec nibh quis congue. Aliquam tristique semper mi, eu laoreet \
-  nunc tincidunt eget. Nunc lectus leo, tincidunt id dapibus sit amet, posuere \
-  a magna. Vestibulum id lorem eget metus mollis sodales. Sed sit amet enim et \
-  nunc blandit lobortis non et libero. Etiam turpis purus, placerat vel blandit \
-  non, varius eget ligula. Donec scelerisque libero vel nisl ultrices, a \
-  sodales justo tempus. Fusce vulputate suscipit elit at posuere. Duis in \
-  dignissim enim, eu euismod diam.\
+  title: 'Ten Reasons Why You Should Hire My Son',
+  body: "1. He's really humble and would never make a website devoted solely \
+  to self promotion.\
   
-  Morbi sollicitudin accumsan laoreet. Duis consectetur cursus consequat. \
-  Phasellus massa metus, feugiat id dui et, finibus sollicitudin magna. Donec \
-  dignissim dapibus est in tempor. Quisque finibus, purus sit amet finibus \
-  eleifend, nibh tortor volutpat quam, in molestie erat dolor nec elit. Nullam \
-  tempor, mauris et sagittis tempus, mi dolor iaculis risus, eu aliquam elit \
-  dolor laoreet risus. Suspendisse lorem diam, maximus at malesuada ut, rutrum \
-  vitae tellus. Integer tortor magna, tristique vitae ipsum quis, vestibulum \
-  laoreet arcu. Duis dignissim libero eget eros euismod dictum. Nulla at \
-  convallis lacus. Interdum et malesuada fames ac ante ipsum primis in \
-  faucibus. Donec maximus, diam sed viverra venenatis, dolor metus fringilla \
-  libero, in tristique mauris ex id turpis. Duis lacinia ultrices viverra. \
-  Fusce id consequat mauris.\
+
+  2. He showers almost every day.\
   
-  Ut ac turpis mattis, laoreet nisl at, facilisis metus. Vestibulum odio \
-  tellus, dapibus sollicitudin lacinia sit amet, finibus ullamcorper augue. \
-  Etiam ac porttitor nisi. Pellentesque ligula felis, interdum eget tristique \
-  et, sagittis quis lacus. Sed facilisis lacinia porttitor. Etiam vel ante ut \
-  tellus scelerisque vulputate id auctor purus. Sed facilisis auctor velit \
-  eget porta. Aenean convallis sapien nibh, ac sagittis mauris eleifend vitae. \
-  Aliquam sit amet ex nisl.\
-  
-  Nulla pulvinar gravida orci quis mollis. In molestie quis orci at tristique. \
-  Etiam dolor orci, maximus sed quam eu, eleifend varius felis. Ut sagittis \
-  sit amet odio sed tristique. Lorem ipsum dolor sit amet, consectetur \
-  adipiscing elit. Aenean ut leo odio. Nunc dui ante, vestibulum nec metus \
-  sed, iaculis blandit nulla. Etiam facilisis, felis eget lacinia mollis, enim \
-  libero pharetra purus, id blandit mauris enim nec dolor. Sed condimentum, \
-  libero in ultricies vehicula, nulla arcu pretium neque, vitae volutpat neque \
-  mauris a neque. Etiam id enim ex. Donec volutpat tincidunt felis, sit amet \
-  tincidunt velit dictum sit amet. Aliquam in posuere sapien. Quisque sodales \
-  erat quis ipsum varius, sit amet pellentesque erat laoreet.\
-  
-  Duis fringilla gravida laoreet. Vestibulum eget massa finibus est ullamcorper \
-  feugiat. Suspendisse potenti. In consequat faucibus turpis quis placerat. \
-  Aliquam eget mi fringilla diam posuere posuere. Donec iaculis, odio id \
-  faucibus consectetur, ante leo aliquet massa, eget dignissim massa arcu ac \
-  nunc. Donec sit amet blandit ipsum. Pellentesque sagittis facilisis lacus, \
-  eget pulvinar enim luctus vitae. Etiam bibendum et lacus eget sollicitudin. \
-  Maecenas purus diam, faucibus id ullamcorper sed, rutrum in sapien. Sed \
-  gravida metus felis, ultrices ornare turpis ullamcorper ut. Ut tempor nunc id \
-  diam lacinia fermentum. Cras pretium scelerisque felis, sit amet lacinia orci. \
-  Aliquam accumsan erat id erat venenatis, a cursus metus iaculis. Nunc feugiat \
-  erat iaculis lectus tempor, sit amet molestie erat rhoncus. Mauris lorem mi, \
-  tempor a ultricies ac, molestie laoreet libero.",
-  tags: ['lifestyle'],
-  author: 'Some Guy',
-  author_id: 5,
+
+  3. He fixes the internet by unplugging and plugging back in the router so he's \
+  obviously great with technology.\
+
+
+  4. He's a good boy. \
+
+
+  5. I'll send him to work with cookies some times.\
+
+
+  6. He's probably my favorite child but don't tell the others.\
+
+
+  7. I don't know if I'm creattive enough to come up with more of these.\
+
+
+  8. His teacher in fourth grade said he was smart.\
+
+
+  9. I don't want to have to support him when he's older.\
+
+
+  10. I can't think of any more but these lists always have ten.",
+  tags: ['story'],
+  author: user2.full_name,
+  author_id: user2.id,
   created_at: DateTime.now
 )
 

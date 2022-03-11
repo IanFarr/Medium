@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from 'react-router-dom';
+import { createStory } from "../../actions/story_actions";
 
 class UploadImage extends React.Component {
 
@@ -25,30 +26,28 @@ class UploadImage extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('post[title]', this.state.title);
-    if (this.state.photoFile) {
-
-      formData.append('story[photo]', this.state.photoFile);
+    const story = {
+      story: {
+        title: 'title',
+        body: 'body',
+        tags: ['story'],
+        author: 'author',
+        author_id: 999,
+      }
     }
-    $.ajax({
-      url: '/api/stories',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    });
+    createStory(story)
   }
 
   render() {
     return (
       <div>
         <h1>Hi</h1>
-        <form>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <input
             type="file"
             onChange={(e) => this.preview(e)}
           />
+          <input type='submit' />
         </form>
       </div>
     )

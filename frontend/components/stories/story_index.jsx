@@ -13,7 +13,7 @@ class StoryIndex extends React.Component {
       return (
         <div>
           <div className="story-index-container">
-            {this.props.stories.map(story => (
+            {this.props.stories.reverse().map(story => (
               <StoryIndexItem
                 story={story}
                 fetchStories={this.props.fetchStories}
@@ -27,7 +27,7 @@ class StoryIndex extends React.Component {
       return (
         <div>
           <div className="story-index-container-logged">
-            {this.props.stories.map(story => (
+            {this.props.stories.reverse().map(story => (
               <StoryIndexItem
                 story={story}
                 fetchStories={this.props.fetchStories}

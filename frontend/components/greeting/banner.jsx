@@ -7,11 +7,11 @@ const Banner = ({ currentUser, logout }) => {
       <div className = 'banner-content' >
         <div className='banner-info'>
           <h1>
-            Medium is a place to write, read, and connect
+            (Me)dium is a place to write, read, and connect... about Ian
           </h1>
           <p>
-            It's easy and free to post your thinking on any topic and connect with
-            millions of readers.
+            It's easy and free to post your thinking on one topic and connect with
+            like two readers.
           </p>
           <Link to="/signup">Start Writing</Link>
         </div>

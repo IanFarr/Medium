@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
   story: {
     title: '',
     body: '',
-    tags: ['tag'],
+    tags: ['story'],
     author: state.entities.users[Object.keys(state.entities.users)[0]].full_name,
     author_id: state.entities.users[Object.keys(state.entities.users)[0]].id,
     created_at: 'March 3'

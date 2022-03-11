@@ -11,7 +11,7 @@ const Greeting = ({ currentUser, logout }) => {
       <div className='nav-bar'>
         <Link to="/" className="header-link">
           <img src={window.mediumLogo} />
-          <h1>Medium</h1>
+          <h1>(Me)dium</h1>
         </Link>
       
         <nav className="login-signup">

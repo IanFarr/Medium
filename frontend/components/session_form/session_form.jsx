@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
     const renderGreeting = () => {
       if (this.props.formType === 'signup') {
         return (
-          <h1>Join Medium.</h1>
+          <h1>Join (Me)dium.</h1>
         )
       } else {
         return (

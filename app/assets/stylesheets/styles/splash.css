@@ -117,7 +117,7 @@ header nav {
 }
 
 .banner-info {
-  width: 580px;
+  width: 590px;
   padding: 22px 0px 22px 0px;
   z-index: 1;
 }
@@ -129,7 +129,7 @@ header nav {
 .banner-info h1 {
   font-family: 'source serif pro', sans-serif;
   font-weight: 300;
-  font-size: 70px;
+  font-size: 64px;
   line-height: 74px;
   color: #090909;
   z-index: 1;

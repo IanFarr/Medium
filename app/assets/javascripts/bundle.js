@@ -737,7 +737,7 @@ var Banner = function Banner(_ref) {
       className: "banner-content"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "banner-info"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Medium is a place to write, read, and connect"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "It's easy and free to post your thinking on any topic and connect with millions of readers."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "(Me)dium is a place to write, read, and connect... about Ian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "It's easy and free to post your thinking on one topic and connect with like two readers."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
       to: "/signup"
     }, "Start Writing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       src: window.quotes
@@ -831,7 +831,7 @@ var Greeting = function Greeting(_ref) {
       className: "header-link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       src: window.mediumLogo
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Medium")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "(Me)dium")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
       className: "login-signup"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
       to: "/login"
@@ -1355,7 +1355,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
       var renderGreeting = function renderGreeting() {
         if (_this3.props.formType === 'signup') {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Join Medium.");
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Join (Me)dium.");
         } else {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Welcome back.");
         }
@@ -1583,7 +1583,7 @@ var mapStateToProps = function mapStateToProps(state) {
     story: {
       title: '',
       body: '',
-      tags: ['tag'],
+      tags: ['story'],
       author: state.entities.users[Object.keys(state.entities.users)[0]].full_name,
       author_id: state.entities.users[Object.keys(state.entities.users)[0]].id,
       created_at: 'March 3'
@@ -1616,6 +1616,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1637,6 +1638,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -1685,31 +1687,33 @@ var UploadImage = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var formData = new FormData();
-      formData.append('post[title]', this.state.title);
-
-      if (this.state.photoFile) {
-        formData.append('story[photo]', this.state.photoFile);
-      }
-
-      $.ajax({
-        url: '/api/stories',
-        method: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false
-      });
+      var story = {
+        story: {
+          title: 'title',
+          body: 'body',
+          tags: ['story'],
+          author: 'author',
+          author_id: 999
+        }
+      };
+      (0,_actions_story_actions__WEBPACK_IMPORTED_MODULE_1__.createStory)(story);
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Hi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Hi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        onSubmit: function onSubmit(e) {
+          return _this3.handleSubmit(e);
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "file",
         onChange: function onChange(e) {
           return _this3.preview(e);
         }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "submit"
       })));
     }
   }]);
@@ -1932,7 +1936,7 @@ var StoryIndex = /*#__PURE__*/function (_React$Component) {
       if (this.props.entitiesObject.session.id === null) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "story-index-container"
-        }, this.props.stories.map(function (story) {
+        }, this.props.stories.reverse().map(function (story) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_story_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             story: story,
             fetchStories: _this.props.fetchStories,
@@ -1942,7 +1946,7 @@ var StoryIndex = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "story-index-container-logged"
-        }, this.props.stories.map(function (story) {
+        }, this.props.stories.reverse().map(function (story) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_story_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             story: story,
             fetchStories: _this.props.fetchStories,
@@ -2628,7 +2632,7 @@ var Trending = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "trending-icon",
         src: window.trendingIcon
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "TRENDING ON MEDIUM")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "TRENDING ON (ME)DIUM")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "trending-items-container"
       }, trendingStories.map(function (story) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_trending_story_item__WEBPACK_IMPORTED_MODULE_1__["default"], {

@@ -39,7 +39,7 @@ class Trending extends React.Component {
         <div className='trending-container'>
           <div className='trending-title-container'>
             <img className="trending-icon" src={window.trendingIcon} />
-            <h1>TRENDING ON MEDIUM</h1>
+            <h1>TRENDING ON (ME)DIUM</h1>
           </div>
           <div className="trending-items-container">
             {trendingStories.map(story => (
