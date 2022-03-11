@@ -1,1 +1,1 @@
-# Medium
+# (Me)dium
