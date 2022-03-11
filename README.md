@@ -15,3 +15,14 @@ I've decided to emphasize the 'Me' in Medium and display humorous articles about
 (Me)dium is an app that allows users to write and publish stories to be displayed for other users to read. The top trending articles are
 displayed first and foremost on the landing page so readers can check out what stories are popular on the site. Users also have the
 ability to 'clap' (Medium's version of Likes) for stories and bookmark stories for reading later. 
+
+## Technologies
+
+- Rails
+  (Me)dium uses a rails backend to manage database calls and accurately present the information we want to the front-end.
+- PostgreSQL
+  (Me)dium's database is built using PostgreSQL.
+- Redux
+  Uses Redux.
+- React
+  Uses React.
