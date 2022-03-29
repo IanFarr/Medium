@@ -8,11 +8,24 @@ class StoryIndex extends React.Component {
   }
 
   render() {
+    let storiesArr
+    if (this.props.stories.length > 1) {
+      if (this.props.stories[0].created_at > this.props.stories[1].created_at) {
+        storiesArr = this.props.stories.reverse();
+      } else {
+        storiesArr = this.props.stories;
+      }
+    } else {
+      storiesArr = this.props.stories;
+    }
+    console.log(storiesArr)
+    if (!storiesArr.length) return null;
+
     if (this.props.entitiesObject.session.id === null) {
       return (
         <div>
           <div className="story-index-container">
-            {this.props.stories.reverse().map(story => (
+            {storiesArr.map(story => (
               <StoryIndexItem
                 story={story}
                 fetchStories={this.props.fetchStories}
@@ -26,7 +39,7 @@ class StoryIndex extends React.Component {
       return (
         <div>
           <div className="story-index-container-logged">
-            {this.props.stories.reverse().map(story => (
+            {storiesArr.map(story => (
               <StoryIndexItem
                 story={story}
                 fetchStories={this.props.fetchStories}

@@ -1929,10 +1929,25 @@ var StoryIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
+      var storiesArr;
+
+      if (this.props.stories.length > 1) {
+        if (this.props.stories[0].created_at > this.props.stories[1].created_at) {
+          storiesArr = this.props.stories.reverse();
+        } else {
+          storiesArr = this.props.stories;
+        }
+      } else {
+        storiesArr = this.props.stories;
+      }
+
+      console.log(storiesArr);
+      if (!storiesArr.length) return null;
+
       if (this.props.entitiesObject.session.id === null) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "story-index-container"
-        }, this.props.stories.reverse().map(function (story) {
+        }, storiesArr.map(function (story) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_story_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             story: story,
             fetchStories: _this.props.fetchStories,
@@ -1942,7 +1957,7 @@ var StoryIndex = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "story-index-container-logged"
-        }, this.props.stories.reverse().map(function (story) {
+        }, storiesArr.map(function (story) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_story_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             story: story,
             fetchStories: _this.props.fetchStories,
