@@ -8,7 +8,6 @@ class Saves extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.entitiesObject.session.id === null) {
       return (
         <div>

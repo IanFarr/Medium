@@ -1089,8 +1089,6 @@ var Saves = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props);
-
       if (this.props.entitiesObject.session.id === null) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "saved-story-index-container"
@@ -1931,8 +1929,6 @@ var StoryIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props);
-
       if (this.props.entitiesObject.session.id === null) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "story-index-container"
@@ -2070,7 +2066,6 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
           author = _this$props$story.author,
           photoUrl = _this$props$story.photoUrl,
           created_at = _this$props$story.created_at;
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "story-index-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
