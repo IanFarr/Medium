@@ -1941,7 +1941,6 @@ var StoryIndex = /*#__PURE__*/function (_React$Component) {
         storiesArr = this.props.stories;
       }
 
-      console.log(storiesArr);
       if (!storiesArr.length) return null;
 
       if (this.props.entitiesObject.session.id === null) {

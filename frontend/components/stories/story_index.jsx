@@ -18,7 +18,6 @@ class StoryIndex extends React.Component {
     } else {
       storiesArr = this.props.stories;
     }
-    console.log(storiesArr)
     if (!storiesArr.length) return null;
 
     if (this.props.entitiesObject.session.id === null) {
