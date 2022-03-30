@@ -10,6 +10,11 @@ class Api::ListsController < ApplicationController
     end
   end
 
+  def index
+    @lists = List.all
+    render :index
+  end
+
   def destroy
     @list = List.find(params[:id])
 

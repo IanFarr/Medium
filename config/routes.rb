@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :stories, only: [:create, :index, :show, :update, :destroy]
     resources :claps, only: [:create, :destroy, :show]
-    resources :lists, only: [:create, :destroy, :show]
+    resources :lists, only: [:create, :destroy, :index, :show]
   end
 
   root "static_pages#root"

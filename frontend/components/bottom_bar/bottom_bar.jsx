@@ -69,7 +69,6 @@ class BottomBar extends React.Component {
   getClapId(claps, userId) {
     let clapId
     claps.forEach(clap => {
-      debugger
       if (clap.clapper_id === undefined) {
         if (clap[Object.keys(clap)].clapper_id === userId) {
           clapId = Number(Object.keys(clap)[0]);

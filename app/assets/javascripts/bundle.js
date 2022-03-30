@@ -68,16 +68,26 @@ var deleteClap = function deleteClap(clapId) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_ALL_LISTS": () => (/* binding */ RECEIVE_ALL_LISTS),
 /* harmony export */   "RECEIVE_LIST": () => (/* binding */ RECEIVE_LIST),
 /* harmony export */   "REMOVE_LIST": () => (/* binding */ REMOVE_LIST),
+/* harmony export */   "fetchLists": () => (/* binding */ fetchLists),
 /* harmony export */   "fetchList": () => (/* binding */ fetchList),
 /* harmony export */   "createList": () => (/* binding */ createList),
 /* harmony export */   "deleteList": () => (/* binding */ deleteList)
 /* harmony export */ });
 /* harmony import */ var _util_list_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/list_api_util */ "./frontend/util/list_api_util.js");
 
+var RECEIVE_ALL_LISTS = 'RECEIVE_ALL_LISTS';
 var RECEIVE_LIST = 'RECEIVE_LIST';
 var REMOVE_LIST = 'REMOVE_LIST';
+
+var receiveAllLists = function receiveAllLists(lists) {
+  return {
+    type: RECEIVE_ALL_LISTS,
+    lists: lists
+  };
+};
 
 var receiveList = function receiveList(list) {
   return {
@@ -93,6 +103,13 @@ var removeList = function removeList(listId) {
   };
 };
 
+var fetchLists = function fetchLists() {
+  return function (dispatch) {
+    return _util_list_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchLists().then(function (lists) {
+      return dispatch(receiveAllLists(lists));
+    });
+  };
+};
 var fetchList = function fetchList(listId) {
   return function (dispatch) {
     return _util_list_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchList(listId).then(function (list) {
@@ -541,8 +558,6 @@ var BottomBar = /*#__PURE__*/function (_React$Component) {
     value: function getClapId(claps, userId) {
       var clapId;
       claps.forEach(function (clap) {
-        debugger;
-
         if (clap.clapper_id === undefined) {
           if (clap[Object.keys(clap)].clapper_id === userId) {
             clapId = Number(Object.keys(clap)[0]);
@@ -1081,6 +1096,8 @@ var Saves = /*#__PURE__*/function (_React$Component) {
   _createClass(Saves, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.fetchLists();
+      this.props.receiveCurrentUser(this.props.user);
       this.props.fetchStories();
     }
   }, {
@@ -1099,7 +1116,13 @@ var Saves = /*#__PURE__*/function (_React$Component) {
           });
         })));
       } else {
-        var savesArray = Object.values(this.props.saves);
+        if (!Object.keys(this.props.allSaves).length) return null;
+        var savesArray = [];
+        Object.keys(this.props.allSaves).forEach(function (key) {
+          if (_this.props.allSaves[key].user_id === _this.props.user.id) {
+            savesArray.push(_this.props.allSaves[key]);
+          }
+        });
         var saveIds = [];
         savesArray.forEach(function (save) {
           saveIds.push(save.story_id);
@@ -1148,6 +1171,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _saves__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./saves */ "./frontend/components/saves/saves.jsx");
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.js");
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_list_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/list_actions */ "./frontend/actions/list_actions.js");
+
+
 
 
 
@@ -1157,10 +1184,14 @@ var mapStateToProps = function mapStateToProps(state) {
   var stories = (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__.asArray)(state.entities);
   var userId = Object.keys(state.entities.users)[0];
   var saves = state.entities.users[userId].lists;
+  var user = state.entities.users[Object.keys(state.entities.users)];
+  var allSaves = state.entities.saves;
   return {
     stories: stories,
     saves: saves,
-    entitiesObject: state
+    entitiesObject: state,
+    user: user,
+    allSaves: allSaves
   };
 };
 
@@ -1168,6 +1199,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchStories: function fetchStories() {
       return dispatch((0,_actions_story_actions__WEBPACK_IMPORTED_MODULE_2__.fetchStories)());
+    },
+    receiveCurrentUser: function receiveCurrentUser(currentUser) {
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__.receiveCurrentUser)(currentUser));
+    },
+    fetchLists: function fetchLists() {
+      return dispatch((0,_actions_list_actions__WEBPACK_IMPORTED_MODULE_5__.fetchLists)());
     }
   };
 };
@@ -1479,7 +1516,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Confirm = function Confirm(props) {
-  debugger;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
   var storyId = location.state.storyId;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2897,11 +2933,11 @@ var savesReducer = function savesReducer() {
   var nextState = Object.assign({}, state);
 
   switch (action.type) {
+    case _actions_list_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_LISTS:
+      return Object.assign({}, action.lists);
+
     case _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_STORY:
       return Object.assign({}, action.payload.lists);
-    // case RECEIVE_ALL_STORIES:
-    //   debugger
-    //   return Object.assign({}, action.payload.lists);
 
     default:
       return state;
@@ -3200,10 +3236,17 @@ var deleteClap = function deleteClap(clapId) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchLists": () => (/* binding */ fetchLists),
 /* harmony export */   "fetchList": () => (/* binding */ fetchList),
 /* harmony export */   "createList": () => (/* binding */ createList),
 /* harmony export */   "deleteList": () => (/* binding */ deleteList)
 /* harmony export */ });
+var fetchLists = function fetchLists() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/lists'
+  });
+};
 var fetchList = function fetchList(listId) {
   return $.ajax({
     method: 'GET',
