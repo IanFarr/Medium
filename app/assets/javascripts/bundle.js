@@ -2667,24 +2667,45 @@ var Trending = /*#__PURE__*/function (_React$Component) {
         }
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "trending-outer-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "trending-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "trending-title-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "trending-icon",
-        src: window.trendingIcon
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "TRENDING ON (ME)DIUM")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "trending-items-container"
-      }, trendingStories.map(function (story) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_trending_story_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          story: story,
-          fetchStories: _this.props.fetchStories,
-          key: story.id
-        });
-      }))));
+      if (this.props.entitiesObject.session.id === null) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-outer-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-title-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "trending-icon",
+          src: window.trendingIcon
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "TRENDING ON (ME)DIUM")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-items-container"
+        }, trendingStories.map(function (story) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_trending_story_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            story: story,
+            fetchStories: _this.props.fetchStories,
+            key: story.id
+          });
+        }))));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-outer-container trending-signed-in"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-title-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "trending-icon",
+          src: window.trendingIcon
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "TRENDING ON (ME)DIUM")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "trending-items-container"
+        }, trendingStories.map(function (story) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_trending_story_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            story: story,
+            fetchStories: _this.props.fetchStories,
+            key: story.id
+          });
+        }))));
+      }
     }
   }]);
 
@@ -2716,7 +2737,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    stories: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__.asArray)(state.entities)
+    stories: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__.asArray)(state.entities),
+    entitiesObject: state
   };
 };
 
