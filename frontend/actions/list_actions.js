@@ -15,6 +15,11 @@ const removeList = listId => ({
   listId
 });
 
+export const fetchList = listId => dispatch => {
+  return listApiUtil.fetchList(listId)
+    .then(list => dispatch(receiveList(list)))
+};
+
 export const createList = list => dispatch => (
   listApiUtil.createList(list)
     .then(list => dispatch(receiveList(list)))

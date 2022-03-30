@@ -1,3 +1,10 @@
+export const fetchList = listId => (
+  $.ajax({
+    method: 'GET',
+    url: `api/lists/${listId}`
+  })
+)
+
 export const createList = list => (
   $.ajax({
     method: 'POST',

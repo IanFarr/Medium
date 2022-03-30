@@ -70,6 +70,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RECEIVE_LIST": () => (/* binding */ RECEIVE_LIST),
 /* harmony export */   "REMOVE_LIST": () => (/* binding */ REMOVE_LIST),
+/* harmony export */   "fetchList": () => (/* binding */ fetchList),
 /* harmony export */   "createList": () => (/* binding */ createList),
 /* harmony export */   "deleteList": () => (/* binding */ deleteList)
 /* harmony export */ });
@@ -92,6 +93,13 @@ var removeList = function removeList(listId) {
   };
 };
 
+var fetchList = function fetchList(listId) {
+  return function (dispatch) {
+    return _util_list_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchList(listId).then(function (list) {
+      return dispatch(receiveList(list));
+    });
+  };
+};
 var createList = function createList(list) {
   return function (dispatch) {
     return _util_list_api_util__WEBPACK_IMPORTED_MODULE_0__.createList(list).then(function (list) {
@@ -496,6 +504,8 @@ var BottomBar = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSave",
     value: function handleSave(action) {
+      var _this2 = this;
+
       var userId = this.props.user[Object.keys(this.props.user)[0]].id;
       var lists = this.props.user[userId].lists;
 
@@ -508,14 +518,20 @@ var BottomBar = /*#__PURE__*/function (_React$Component) {
           story_id: this.props.story.id
         });
       }
+
+      setTimeout(function () {
+        _this2.props.fetchStory(_this2.props.story.id);
+      }, 200);
     }
   }, {
     key: "getListId",
     value: function getListId(lists, userId) {
+      var _this3 = this;
+
       var listId;
-      Object.keys(lists).forEach(function (key) {
-        if (lists[key].user_id === userId) {
-          listId = lists[key].id;
+      Object.keys(this.props.saves).forEach(function (key) {
+        if (_this3.props.saves[key].user_id === userId) {
+          listId = _this3.props.saves[key].id;
         }
       });
       return listId;
@@ -569,7 +585,7 @@ var BottomBar = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getSaveImage",
     value: function getSaveImage() {
-      var _this2 = this;
+      var _this4 = this;
 
       if (Object.keys(this.props.user)[0] === undefined) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -578,17 +594,17 @@ var BottomBar = /*#__PURE__*/function (_React$Component) {
         });
       }
 
-      var userId = Object.keys(this.props.user)[0];
-      var lists = this.props.user[userId].lists;
-      var savedIds = [];
-      Object.keys(lists).forEach(function (saveId) {
-        savedIds.push(lists[saveId].story_id);
+      var userId = Number(Object.keys(this.props.user)[0]);
+      var saves = this.props.saves;
+      var saverIds = [];
+      Object.keys(saves).forEach(function (save) {
+        saverIds.push(saves[save].user_id);
       });
 
-      if (savedIds.includes(this.props.story.id)) {
+      if (saverIds.includes(userId)) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           onClick: function onClick() {
-            return _this2.handleSave('remove');
+            return _this4.handleSave('remove');
           },
           className: "story-show-save-icon-saved",
           src: window.saveIconSaved
@@ -596,7 +612,7 @@ var BottomBar = /*#__PURE__*/function (_React$Component) {
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           onClick: function onClick() {
-            return _this2.handleSave('add');
+            return _this4.handleSave('add');
           },
           className: "story-show-save-icon",
           src: window.navSavedIcon
@@ -641,11 +657,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _bottom_bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bottom_bar */ "./frontend/components/bottom_bar/bottom_bar.jsx");
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 /* harmony import */ var _actions_clap_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/clap_actions */ "./frontend/actions/clap_actions.js");
 /* harmony import */ var _actions_list_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/list_actions */ "./frontend/actions/list_actions.js");
+/* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.js");
+
 
 
 
@@ -660,38 +678,19 @@ var mapStateToProps = function mapStateToProps(state, _ref) {
   return {
     story: story,
     claps: Object.values(state.entities.claps),
+    saves: Object.values(state.entities.saves),
     user: state.entities.users
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    fetchStories: function (_fetchStories) {
-      function fetchStories() {
-        return _fetchStories.apply(this, arguments);
-      }
-
-      fetchStories.toString = function () {
-        return _fetchStories.toString();
-      };
-
-      return fetchStories;
-    }(function () {
-      return dispatch(fetchStories());
-    }),
-    fetchStory: function (_fetchStory) {
-      function fetchStory(_x) {
-        return _fetchStory.apply(this, arguments);
-      }
-
-      fetchStory.toString = function () {
-        return _fetchStory.toString();
-      };
-
-      return fetchStory;
-    }(function (storyId) {
-      return dispatch(fetchStory(storyId));
-    }),
+    fetchStories: function fetchStories() {
+      return dispatch((0,_actions_story_actions__WEBPACK_IMPORTED_MODULE_5__.fetchStories)());
+    },
+    fetchStory: function fetchStory(storyId) {
+      return dispatch((0,_actions_story_actions__WEBPACK_IMPORTED_MODULE_5__.fetchStory)(storyId));
+    },
     createClap: function createClap(clap) {
       return dispatch((0,_actions_clap_actions__WEBPACK_IMPORTED_MODULE_3__.createClap)(clap));
     },
@@ -707,7 +706,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_bottom_bar__WEBPACK_IMPORTED_MODULE_1__["default"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_bottom_bar__WEBPACK_IMPORTED_MODULE_1__["default"])));
 
 /***/ }),
 
@@ -2807,18 +2806,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _stories_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stories_reducer */ "./frontend/reducers/stories_reducer.js");
 /* harmony import */ var _claps_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./claps_reducer */ "./frontend/reducers/claps_reducer.js");
+/* harmony import */ var _saves_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./saves_reducer */ "./frontend/reducers/saves_reducer.js");
 
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
   stories: _stories_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  claps: _claps_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  claps: _claps_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  saves: _saves_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
@@ -2869,6 +2871,44 @@ var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
   errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/saves_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/saves_reducer.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_list_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/list_actions */ "./frontend/actions/list_actions.js");
+/* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/story_actions */ "./frontend/actions/story_actions.js");
+
+
+
+var savesReducer = function savesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var nextState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_STORY:
+      return Object.assign({}, action.payload.lists);
+    // case RECEIVE_ALL_STORIES:
+    //   debugger
+    //   return Object.assign({}, action.payload.lists);
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (savesReducer);
 
 /***/ }),
 
@@ -3160,9 +3200,16 @@ var deleteClap = function deleteClap(clapId) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchList": () => (/* binding */ fetchList),
 /* harmony export */   "createList": () => (/* binding */ createList),
 /* harmony export */   "deleteList": () => (/* binding */ deleteList)
 /* harmony export */ });
+var fetchList = function fetchList(listId) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/lists/".concat(listId)
+  });
+};
 var createList = function createList(list) {
   return $.ajax({
     method: 'POST',
