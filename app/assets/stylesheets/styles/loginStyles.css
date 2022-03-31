@@ -47,8 +47,19 @@
   margin-left: 16px;
 }
 
-.login-form-box ul {
-  display: none;
+.errors {
+  display: flex;
+  justify-content: center;
+}
+
+.errors ul {
+  align-items: center;
+  padding: 0;
+}
+
+.errors ul li {
+  list-style: none;
+  color: red;
 }
 
 .login-form-container h1 {

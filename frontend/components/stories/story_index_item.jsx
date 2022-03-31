@@ -11,7 +11,6 @@ class StoryIndexItem extends React.Component {
   render() {
 
     const { id, title, body, tags, author, photoUrl, created_at } = this.props.story;
-    debugger
 
     return (
       <div className="story-index-item-container">

@@ -4,7 +4,8 @@ import { asArray } from "../../reducers/selectors";
 import Trending from "./trending";
 
 const mapStateToProps = state => ({
-  stories: asArray(state.entities)
+  stories: asArray(state.entities),
+  entitiesObject: state
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -50,13 +50,16 @@ class BottomBar extends React.Component {
     } else {
       this.props.createList({ user_id: userId, story_id: this.props.story.id });
     }
+    setTimeout(() => {
+      this.props.fetchStory(this.props.story.id)
+    }, 200)
   }
 
   getListId(lists, userId) {
     let listId
-    Object.keys(lists).forEach(key => {
-      if (lists[key].user_id === userId) {
-        listId = lists[key].id
+    Object.keys(this.props.saves).forEach(key => {
+      if (this.props.saves[key].user_id === userId) {
+        listId = this.props.saves[key].id
       }
     })
 
@@ -66,7 +69,6 @@ class BottomBar extends React.Component {
   getClapId(claps, userId) {
     let clapId
     claps.forEach(clap => {
-      debugger
       if (clap.clapper_id === undefined) {
         if (clap[Object.keys(clap)].clapper_id === userId) {
           clapId = Number(Object.keys(clap)[0]);
@@ -107,14 +109,13 @@ class BottomBar extends React.Component {
         <img className="story-show-save-icon" src={window.navSavedIcon} />
       )
     }
-    const userId = Object.keys(this.props.user)[0];
-    const lists = this.props.user[userId].lists;
-    let savedIds = [];
-    Object.keys(lists).forEach(saveId => {
-      savedIds.push(lists[saveId].story_id)
+    const userId = Number(Object.keys(this.props.user)[0]);
+    const saves = this.props.saves;
+    let saverIds = [];
+    Object.keys(saves).forEach(save => {
+      saverIds.push(saves[save].user_id)
     })
-
-    if (savedIds.includes(this.props.story.id)) {
+    if (saverIds.includes(userId)) {
       return (
         <img onClick={() => this.handleSave('remove')} className="story-show-save-icon-saved" src={window.saveIconSaved} />
       )

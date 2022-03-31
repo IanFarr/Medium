@@ -4,11 +4,12 @@ import StoryIndexItem from "../stories/story_index_item";
 class Saves extends React.Component {
 
   componentDidMount() {
+    this.props.fetchLists();
+    this.props.receiveCurrentUser(this.props.user);
     this.props.fetchStories();
   }
 
   render() {
-    console.log(this.props)
     if (this.props.entitiesObject.session.id === null) {
       return (
         <div>
@@ -24,7 +25,13 @@ class Saves extends React.Component {
         </div>
       )
     } else {
-      const savesArray = Object.values(this.props.saves)
+      if (!Object.keys(this.props.allSaves).length) return null;
+      let savesArray = [];
+      Object.keys(this.props.allSaves).forEach(key => {
+        if (this.props.allSaves[key].user_id === this.props.user.id) {
+          savesArray.push(this.props.allSaves[key])
+        }
+      })
       const saveIds = []
       savesArray.forEach(save => {
         saveIds.push(save.story_id)

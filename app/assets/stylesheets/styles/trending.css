@@ -7,6 +7,10 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
+.trending-signed-in {
+  margin-left: 60px;
+}
+
 .trending-container {
   display: flex;
   flex-direction: column;
@@ -57,10 +61,6 @@
   margin-right: 18px;
   margin-top: -10px;
   color: #e6e6e6;
-}
-
-.trending-story-info {
-
 }
 
 .trending-author-container {

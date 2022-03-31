@@ -34,25 +34,47 @@ class Trending extends React.Component {
       }
     }
 
-    return (
-      <div className='trending-outer-container'>
-        <div className='trending-container'>
-          <div className='trending-title-container'>
-            <img className="trending-icon" src={window.trendingIcon} />
-            <h1>TRENDING ON (ME)DIUM</h1>
-          </div>
-          <div className="trending-items-container">
-            {trendingStories.map(story => (
-              <TrendingStoryItem
-                story={story}
-                fetchStories={this.props.fetchStories}
-                key={story.id}
-              />
-            ))}
+    if (this.props.entitiesObject.session.id === null) {
+      return (
+        <div className='trending-outer-container'>
+          <div className='trending-container'>
+            <div className='trending-title-container'>
+              <img className="trending-icon" src={window.trendingIcon} />
+              <h1>TRENDING ON (ME)DIUM</h1>
+            </div>
+            <div className="trending-items-container">
+              {trendingStories.map(story => (
+                <TrendingStoryItem
+                  story={story}
+                  fetchStories={this.props.fetchStories}
+                  key={story.id}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className='trending-outer-container trending-signed-in'>
+          <div className='trending-container'>
+            <div className='trending-title-container'>
+              <img className="trending-icon" src={window.trendingIcon} />
+              <h1>TRENDING ON (ME)DIUM</h1>
+            </div>
+            <div className="trending-items-container">
+              {trendingStories.map(story => (
+                <TrendingStoryItem
+                  story={story}
+                  fetchStories={this.props.fetchStories}
+                  key={story.id}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+    }
   }
 }
 

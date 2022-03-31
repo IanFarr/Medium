@@ -26,7 +26,11 @@ import YourStoriesContainer from './stories/your_stories_container';
 import BottomBarContainer from './bottom_bar/bottom_bar_container';
 import SavesContainer from './saves/saves_container';
 
+import AboutLinks from './about_links/about_links';
+
 import ConfirmContainer from './stories/confirm_container';
+
+import AlertContainer from './alerts/alert_container';
 
 import UploadImage from './stories/create_story_image'
 
@@ -37,10 +41,9 @@ const App = () => (
   <div>
     <Route exact path="/image" component={UploadImage} />
 
-
-
-
     <Route exact path="/confirm" component={ConfirmContainer} />
+
+    <Route exact path="/alerts" component={AlertContainer} />
 
     <div className='your-stories-outer-container'>
       <ProtectedRoute exact path="/stories/myStories" component={NavBarContainer} />
@@ -71,7 +74,10 @@ const App = () => (
     <div className='index-content-container'>
       <Route exact path="/" component={NavBarContainer} />
       <Route exact path="/" component={TrendingContainer} />
-      <Route exact path="/" component={StoryIndexContainer} />
+      <div className='index-and-about-links-container'>
+        <Route exact path="/" component={StoryIndexContainer} />
+        <Route exact path="/" component={AboutLinks} />
+      </div>
     </div>
   </div>
 );

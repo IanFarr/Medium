@@ -2,7 +2,6 @@ import React from "react";
 import { Link, withRouter, useLocation } from 'react-router-dom';
 
 const Confirm = (props) => {
-  debugger
   const location = useLocation()
   const { storyId } = location.state;
 
