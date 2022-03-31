@@ -52,7 +52,7 @@ class StoryIndexItem extends React.Component {
               {Moment(created_at).format('MMMM D')}
             </p>
             <span className="dot"></span>
-            <p className="story-index-tags">{tags[0]}</p>
+            <p className="story-index-tags">{tags[0] || 'story'}</p>
           </div>
           
         </div>

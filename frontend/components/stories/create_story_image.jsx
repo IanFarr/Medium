@@ -1,6 +1,4 @@
 import React from "react";
-import { Link, withRouter } from 'react-router-dom';
-import { createStory } from "../../actions/story_actions";
 
 class UploadImage extends React.Component {
 
@@ -26,22 +24,28 @@ class UploadImage extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const story = {
-      story: {
-        title: 'title',
-        body: 'body',
-        tags: ['story'],
-        author: 'author',
-        author_id: 999,
-      }
-    }
-    createStory(story)
+    const story = this.props.location.state.story;
+    const formData = new FormData();
+    formData.append('story[title]', story.title)
+    formData.append('story[body]', story.body)
+    formData.append('story[author]', story.author)
+    formData.append('story[author_id]', story.author_id)
+    formData.append('story[created_at]', story.created_at)
+    const arr = ['story']
+    formData.append('story[tags]', JSON.stringify(arr))
+
+    if (this.state !== null) formData.append('story[photo]', this.state.imageFile)
+    const create = this.props.location.state.action;
+    
+    create(formData);
+
+    this.props.history.push('/');
   }
 
   render() {
     return (
       <div>
-        <h1>Hi</h1>
+        <h1>Upload an image with your story</h1>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <input
             type="file"

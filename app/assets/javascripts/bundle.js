@@ -1852,7 +1852,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1874,8 +1873,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
 
 
 
@@ -1923,23 +1920,26 @@ var UploadImage = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var story = {
-        story: {
-          title: 'title',
-          body: 'body',
-          tags: ['story'],
-          author: 'author',
-          author_id: 999
-        }
-      };
-      (0,_actions_story_actions__WEBPACK_IMPORTED_MODULE_1__.createStory)(story);
+      var story = this.props.location.state.story;
+      var formData = new FormData();
+      formData.append('story[title]', story.title);
+      formData.append('story[body]', story.body);
+      formData.append('story[author]', story.author);
+      formData.append('story[author_id]', story.author_id);
+      formData.append('story[created_at]', story.created_at);
+      var arr = ['story'];
+      formData.append('story[tags]', JSON.stringify(arr));
+      if (this.state !== null) formData.append('story[photo]', this.state.imageFile);
+      var create = this.props.location.state.action;
+      create(formData);
+      this.props.history.push('/');
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Hi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Upload an image with your story"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: function onSubmit(e) {
           return _this3.handleSubmit(e);
         }
@@ -2056,8 +2056,21 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.action(this.props.story);
-      this.props.history.push('/');
+
+      if (this.props.story.title === '' || this.props.story.body === '') {
+        alert('You must include both a title and a body.');
+      } else if (this.props.formType === 'Edit Story') {
+        this.props.action(this.props.story);
+        this.props.history.push('/');
+      } else {
+        this.props.history.push({
+          pathname: '/image',
+          state: {
+            story: this.props.story,
+            action: this.props.action
+          }
+        });
+      }
     }
   }, {
     key: "update",
@@ -2366,7 +2379,7 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "dot"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "story-index-tags"
-      }, tags[0]))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      }, tags[0] || 'story'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         to: "/stories/show/".concat(id)
       }, this.renderStoryPhoto()));
     }
@@ -3665,9 +3678,9 @@ var createStory = function createStory(story) {
   return $.ajax({
     method: 'POST',
     url: 'api/stories',
-    data: {
-      story: story
-    }
+    data: story,
+    contentType: false,
+    processData: false
   });
 };
 var updateStory = function updateStory(story) {

@@ -10,8 +10,20 @@ class StoryForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.props.story);
-    this.props.history.push('/')
+    if (this.props.story.title === '' || this.props.story.body === '') {
+      alert('You must include both a title and a body.')
+    } else if (this.props.formType === 'Edit Story') {
+      this.props.action(this.props.story);
+      this.props.history.push('/');
+    } else {
+      this.props.history.push({
+        pathname: '/image',
+        state: {
+          story: this.props.story,
+          action: this.props.action
+        }
+      });
+    }
   }
 
   update(field) {
