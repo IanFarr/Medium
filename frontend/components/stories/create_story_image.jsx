@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, withRouter } from 'react-router-dom';
 
 class UploadImage extends React.Component {
 
@@ -44,15 +45,28 @@ class UploadImage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Upload an image with your story</h1>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <input
-            type="file"
-            onChange={(e) => this.preview(e)}
-          />
-          <input type='submit' />
-        </form>
+      <div className="confirm-modal">
+        <div className="confirm-container">
+          <div className='confirm-modal-x-container'>
+            <Link to="/" className='confirm-modal-x'></Link>
+          </div>
+
+          <div className="confirm-modal-content">
+            <h1>Upload an image with your story</h1>
+            <div className="image-modal-content">
+              <form onSubmit={(e) => this.handleSubmit(e)}>
+              <input
+                className="upload-image"
+                type="file"
+                onChange={(e) => this.preview(e)}
+              />
+              <input
+                className="confirm-cancel-button image-confirm-button"
+                type='submit' />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

@@ -1,0 +1,30 @@
+.image-modal-content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-modal-content h1 {
+  margin-bottom: 25px;
+  margin-top: 40px;
+}
+
+.image-modal-content form input {
+  margin-bottom: 20px;
+}
+
+.upload-image {
+  margin-left: 90px;
+}
+
+.image-confirm-button {
+  padding-top: 5px;
+  color: #fff;
+  background-color: #188916;
+  border: none;
+}
+
+.image-confirm-button:hover {
+  background-color: #1a8516;
+}
