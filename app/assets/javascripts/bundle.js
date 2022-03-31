@@ -3111,7 +3111,7 @@ var clapsReducer = function clapsReducer() {
       return nextState;
 
     case _actions_story_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_STORY:
-      return action.payload.claps;
+      return Object.assign({}, action.payload.claps);
 
     default:
       return state;

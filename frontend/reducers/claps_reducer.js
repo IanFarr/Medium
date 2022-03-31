@@ -17,7 +17,7 @@ const clapsReducer = (state = {}, action) => {
       delete nextState[Object.keys(action.clapId)[0]];
       return nextState;
     case RECEIVE_STORY:
-      return action.payload.claps
+      return Object.assign({}, action.payload.claps);
     default:
       return state;
   }
