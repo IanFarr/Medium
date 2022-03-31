@@ -5,6 +5,8 @@ class StoryShow extends React.Component {
 
   constructor(props) {
     super(props)
+
+    this.renderStoryPhoto = this.renderStoryPhoto.bind(this);
   }
 
   componentDidMount() {
@@ -13,6 +15,15 @@ class StoryShow extends React.Component {
 
   componentWillUnmount() {
     this.props.fetchStories
+  }
+
+  renderStoryPhoto() {
+    if (this.props.story === undefined) return null;
+    if (this.props.story.photoUrl === undefined) {
+      return <img className="story-show-body-image" src={window.defaultStoryImage} />
+    } else {
+      return <img className="story-show-body-image" src={this.props.story.photoUrl} />
+    }
   }
 
   render() {
@@ -32,7 +43,8 @@ class StoryShow extends React.Component {
           </div>
           <h1 className="story-show-title">{story.title}</h1>
           <div className="story-body-image-container">
-            <img className="story-show-body-image" src={story.photoUrl} />
+            {this.renderStoryPhoto()}
+            {/* <img className="story-show-body-image" src={story.photoUrl} /> */}
           </div>
           <p className="sory-show-body">{story.body}</p>
         </div>

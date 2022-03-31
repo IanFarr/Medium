@@ -2298,18 +2298,39 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(StoryIndexItem);
 
-  function StoryIndexItem() {
+  function StoryIndexItem(props) {
+    var _this;
+
     _classCallCheck(this, StoryIndexItem);
 
-    return _super.apply(this, arguments);
-  }
+    _this = _super.call(this, props);
+    _this.renderStoryPhoto = _this.renderStoryPhoto.bind(_assertThisInitialized(_this));
+    return _this;
+  } // componentDidMount() {
+  //   this.props.fetchStories();
+  // }
+
 
   _createClass(StoryIndexItem, [{
+    key: "renderStoryPhoto",
+    value: function renderStoryPhoto() {
+      if (this.props.story === undefined) return null;
+
+      if (this.props.story.photoUrl === undefined) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "story-index-item-image",
+          src: window.defaultStoryImage
+        });
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "story-index-item-image",
+          src: this.props.story.photoUrl
+        });
+      }
+    }
+  }, {
     key: "render",
-    value: // componentDidMount() {
-    //   this.props.fetchStories();
-    // }
-    function render() {
+    value: function render() {
       var _this$props$story = this.props.story,
           id = _this$props$story.id,
           title = _this$props$story.title,
@@ -2347,10 +2368,7 @@ var StoryIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "story-index-tags"
       }, tags[0]))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         to: "/stories/show/".concat(id)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "story-index-item-image",
-        src: photoUrl
-      })));
+      }, this.renderStoryPhoto()));
     }
   }]);
 
@@ -2406,9 +2424,13 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(StoryShow);
 
   function StoryShow(props) {
+    var _this;
+
     _classCallCheck(this, StoryShow);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.renderStoryPhoto = _this.renderStoryPhoto.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(StoryShow, [{
@@ -2420,6 +2442,23 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       this.props.fetchStories;
+    }
+  }, {
+    key: "renderStoryPhoto",
+    value: function renderStoryPhoto() {
+      if (this.props.story === undefined) return null;
+
+      if (this.props.story.photoUrl === undefined) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "story-show-body-image",
+          src: window.defaultStoryImage
+        });
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "story-show-body-image",
+          src: this.props.story.photoUrl
+        });
+      }
     }
   }, {
     key: "render",
@@ -2445,10 +2484,7 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
         className: "story-show-title"
       }, story.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "story-body-image-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "story-show-body-image",
-        src: story.photoUrl
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, this.renderStoryPhoto()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "sory-show-body"
       }, story.body)));
     }

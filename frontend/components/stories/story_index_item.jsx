@@ -4,9 +4,24 @@ import Moment from "moment";
 
 class StoryIndexItem extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.renderStoryPhoto = this.renderStoryPhoto.bind(this);
+  }
+
   // componentDidMount() {
   //   this.props.fetchStories();
   // }
+
+  renderStoryPhoto() {
+    if (this.props.story === undefined) return null;
+    if (this.props.story.photoUrl === undefined) {
+      return <img className="story-index-item-image" src={window.defaultStoryImage} />
+    } else {
+      return <img className="story-index-item-image" src={this.props.story.photoUrl} />
+    }
+  }
 
   render() {
 
@@ -43,9 +58,10 @@ class StoryIndexItem extends React.Component {
         </div>
 
         <Link to={`/stories/show/${id}`}>
-          <img className="story-index-item-image"
+          {this.renderStoryPhoto()}
+          {/* <img className="story-index-item-image"
             src={photoUrl} 
-          />
+          /> */}
           {/* src={window.indexStoryImage} /> */}
         </Link>
 
