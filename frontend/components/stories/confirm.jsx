@@ -5,6 +5,13 @@ const Confirm = (props) => {
   const location = useLocation()
   const { storyId } = location.state;
 
+  const direct = () => {
+    props.deleteStory(storyId)
+    setTimeout(() => {
+      props.history.push("/stories/myStories");
+    }, 1000)
+  }
+
   return (
     <div className="confirm-modal">
       <div className="confirm-container">
@@ -21,13 +28,14 @@ const Confirm = (props) => {
               Cancel
             </button>
           </Link>
-            <Link to="/stories/myStories">
+            {/* <Link to="/stories/myStories"> */}
               <button 
                 className="confirm-delete-button"
-                onClick={() => props.deleteStory(storyId)}>
+                // onClick={() => props.deleteStory(storyId)}
+                onClick={() => direct()}>
                   Delete
               </button>
-            </Link>
+            {/* </Link> */}
           </div>
         </div>
       </div>
