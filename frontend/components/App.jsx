@@ -9,13 +9,13 @@ import {
 } from 'react-router-dom';
 
 // Analytics
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
-function initializeReactGA() {
-  ReactGA.initialize('G-RR68ESZ081');
-  ReactGA.pageview('/homepage');
-}
-initializeReactGA();
+// function initializeReactGA() {
+//   ReactGA.initialize('G-RR68ESZ081');
+//   ReactGA.pageview('/homepage');
+// }
+// initializeReactGA();
 
 // Components
 import GreetingContainer from './greeting/greeting_container';

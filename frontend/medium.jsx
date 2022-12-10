@@ -5,12 +5,12 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 // Analytics
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
-function initializeReactGA() {
-  ReactGA.initialize('G-RR68ESZ081');
-  ReactGA.pageview('/homepage');
-}
+// function initializeReactGA() {
+//   ReactGA.initialize('G-RR68ESZ081');
+//   ReactGA.pageview('/homepage');
+// }
 
 document.addEventListener('DOMContentLoaded', () => {
   initializeReactGA();
