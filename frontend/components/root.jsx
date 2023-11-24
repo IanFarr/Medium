@@ -5,11 +5,11 @@ import { HashRouter } from "react-router-dom";
 import App from "./App";
 
 // Analytics
-// import ReactGA from 'react-ga';
-// function initializeReactGA() {
-//   ReactGA.initialize('G-RR68ESZ081');
-//   ReactGA.pageview('/homepage');
-// }
+import ReactGA from 'react-ga';
+function initializeReactGA() {
+  ReactGA.initialize('G-RR68ESZ081');
+  ReactGA.pageview('/homepage');
+}
 
 const Root = ({ store }) => (
   <Provider store={store}>
