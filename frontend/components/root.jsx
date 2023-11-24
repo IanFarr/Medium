@@ -10,13 +10,13 @@ function initializeReactGA() {
   ReactGA.initialize('G-RR68ESZ081');
   ReactGA.pageview('/homepage');
 }
+initializeReactGA();
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <App>
-        {initializeReactGA()}
-      </App>
+      initializeReactGA();
+      <App />
     </HashRouter>
   </Provider>
 );

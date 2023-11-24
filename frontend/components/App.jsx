@@ -47,6 +47,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
+    initializeReactGA();
     <Route exact path="/image" component={UploadImage} />
 
     <Route exact path="/confirm" component={ConfirmContainer} />
